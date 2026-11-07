@@ -13,9 +13,11 @@
   "send_email": [
     { "name": "SEND_EMAIL", "allowed_destination_addresses": ["hemalviral2011@gmail.com"] }
   ],
-  // Custom domain (attached). www is handled by a Cloudflare redirect
-  // rule that points to the apex, so only the apex lives here.
-  "routes": [
-    { "pattern": "ivorists.com", "custom_domain": true }
-  ]
+  // Live routing notes:
+  // - ivorists.com is attached in the Cloudflare dashboard (Workers custom
+  //   domain state), not here: the zone DNS for the apex is externally
+  //   managed, so a config route here would conflict. Leave routes out of
+  //   wrangler.jsonc unless the DNS ownership changes.
+  // - www.ivorists.com is a Cloudflare redirect to the apex.
+  "workers_dev": true
 }
