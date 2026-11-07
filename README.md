@@ -13,12 +13,12 @@ Plain HTML/CSS/JS: no build step, no dependencies.
 
 ## Deploying
 
-Cloudflare Workers (static assets):
+Cloudflare Workers (static assets + a small email handler):
 
 ```
 npx wrangler deploy
 ```
 
-Make sure you're authenticated (`npx wrangler login`) and the `ivorists.com`
-zone is attached to the Cloudflare account: the custom domain routes come
-from `wrangler.jsonc`.
+Make sure you're authenticated (`npx wrangler login`). The custom domain
+`ivorists.com` is attached through the `routes` config; `www` redirects
+to the apex via a Cloudflare redirect rule.
