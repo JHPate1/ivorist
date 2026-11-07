@@ -326,9 +326,13 @@
               What are you building?
               <textarea name="message" rows="5" placeholder="Smart device? Companion app? A bit of both? Give us the gist…" required></textarea>
             </label>
+            <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
             <button type="submit" class="btn btn-primary btn-block">Send message</button>
             <p class="form-success" id="formSuccess" hidden>
               ✦ Got it. That landed with a person, not a queue.
+            </p>
+            <p class="form-error" id="formError" hidden>
+              That didn't go through. Try once more, or write to team@ivorists.com directly.
             </p>
           </form>
         </div>

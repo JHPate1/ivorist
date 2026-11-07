@@ -7,8 +7,9 @@ Plain HTML/CSS/JS: no build step, no dependencies.
 
 - `index.html`: the whole site (hero, about, solutions, process, team, contact)
 - `styles.css`: styling (dark theme, green accent, diamond motif)
-- `script.js`: nav, scroll reveal, contact form
-- `wrangler.jsonc`: Cloudflare config (static assets + custom domains)
+- `script.js`: nav, scroll reveal, contact form (posts to `/api/message`)
+- `worker.js`: form endpoint, emails every submission to the founders' inbox
+- `wrangler.jsonc`: Cloudflare config (assets, worker, email binding, domains)
 
 ## Deploying
 

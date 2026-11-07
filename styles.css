@@ -643,6 +643,23 @@ section[id] { scroll-margin-top: 84px; }
   border-radius: 12px;
   background: rgba(52, 211, 153, 0.06);
 }
+.form-error {
+  text-align: center;
+  color: #fca5a5;
+  font-size: 14.5px;
+  padding: 12px;
+  border: 1px dashed rgba(248, 113, 113, 0.45);
+  border-radius: 12px;
+  background: rgba(248, 113, 113, 0.06);
+}
+.hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
 
 /* ---------- footer ---------- */
 .site-footer {

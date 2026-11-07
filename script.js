@@ -62,18 +62,51 @@ function revealInView() {
 }
 
 // ----- contact form -----
+// The form posts to /api/message (handled by worker.js on Cloudflare),
+// which emails the message to the founders' inbox.
 const form = document.getElementById("contactForm");
 const formSuccess = document.getElementById("formSuccess");
+const formError = document.getElementById("formError");
 
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
   if (!form.checkValidity()) {
     form.reportValidity();
     return;
   }
-  formSuccess.hidden = false;
-  form.reset();
-  setTimeout(() => (formSuccess.hidden = true), 6000);
+
+  const fields = form.elements;
+  const button = form.querySelector("button[type=submit]");
+  const original = button.textContent;
+  button.disabled = true;
+  button.textContent = "Sending...";
+  formSuccess.hidden = true;
+  formError.hidden = true;
+
+  const payload = {
+    name: fields.name.value.trim(),
+    email: fields.email.value.trim(),
+    message: fields.message.value.trim(),
+    website: fields.website.value, // honeypot, must stay empty
+  };
+
+  try {
+    const res = await fetch("/api/message", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    if (!res.ok) throw new Error("send failed");
+    form.reset();
+    formSuccess.hidden = false;
+    setTimeout(() => (formSuccess.hidden = true), 6000);
+  } catch {
+    formError.hidden = false;
+    setTimeout(() => (formError.hidden = true), 8000);
+  } finally {
+    button.disabled = false;
+    button.textContent = original;
+  }
 });
 
 // ----- footer year -----
