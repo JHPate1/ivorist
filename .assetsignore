@@ -1,3 +1,5 @@
 .wrangler/
+.git/
+.gitignore
 wrangler.jsonc
 README.md
