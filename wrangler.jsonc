@@ -11,7 +11,7 @@
     ]
   },
   "send_email": [
-    { "name": "SEND_EMAIL", "destination_addresses": ["hemalviral2011@gmail.com"] }
+    { "name": "SEND_EMAIL", "allowed_destination_addresses": ["hemalviral2011@gmail.com"] }
   ],
   //_DOMAIN_ROUTES_ custom domains (uncomment after the conflicting DNS
   // records for ivorists.com / www are removed from the zone):
