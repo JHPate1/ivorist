@@ -32,14 +32,14 @@ export default {
       if (request.method !== "POST") {
         return json({ ok: false, error: "Method not allowed" }, 405);
       }
-      return handleContact(request, url.hostname);
+      return handleContact(request, env, url.hostname);
     }
 
     return env.ASSETS.fetch(request);
   },
 };
 
-async function handleContact(request, host) {
+async function handleContact(request, env, host) {
   let body;
   try {
     body = await request.json();
@@ -69,28 +69,29 @@ async function handleContact(request, host) {
 
   const subject = safeHeader("New message from " + name + " (ivorists.com)").slice(0, LIMITS.subject);
 
-  const mime = [
-    "From: Ivorist website <" + FROM + ">",
-    "To: " + DESTINATION,
-    "Reply-To: " + email,
-    "Subject: " + subject,
-    "Content-Type: text/plain; charset=utf-8",
-    "X-Source: ivorists.com contact form",
-    "",
+  const bodyText = [
     "Name: " + name,
     "Email: " + email,
     "",
     text,
     "",
     "Sent from the contact form on " + host,
-  ].join("\r\n") + "\r\n";
+  ].join("\r\n");
 
   try {
-    const mail = new EmailMessage(FROM, DESTINATION, mime);
-    await env.SEND_EMAIL.send(mail);
+    const result = await env.SEND_EMAIL.send({
+      to: DESTINATION,
+      from: FROM,
+      subject,
+      text: bodyText,
+      replyTo: email,
+      headers: { "X-Source": "ivorists.com contact form" },
+    });
+    console.log("email sent, id:", result && result.messageId);
     return json({ ok: true });
   } catch (err) {
-    console.error("email send failed:", err instanceof Error ? err.message : err);
+    const code = err && err.code ? err.code : "";
+    console.error("email send failed:", code, err && err.message);
     return json({ ok: false, error: "Not sent" }, 500);
   }
 }
