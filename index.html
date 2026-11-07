@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ivorist — Hardware and Software, One Team</title>
+  <meta name="description" content="We're four founders who design the boards, write the firmware and build the apps and cloud around them — so nothing gets lost between the two halves of your product." />
+  <meta name="theme-color" content="#08090a" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2036%2036'%3E%3Crect%20width='36'%20height='36'%20rx='8'%20fill='%2308090a'/%3E%3Cpath%20d='M18%208%20L28%2018%20L18%2028%20L8%2018%20Z'%20stroke='%234ade80'%20stroke-width='2.4'%20fill='none'/%3E%3Cpath%20d='M18%202%20V8%20M18%2028%20V34%20M2%2018%20H8%20M28%2018%20H34'%20stroke='%234ade80'%20stroke-width='2'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body id="top">
+
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="nav container" aria-label="Main navigation">
+      <a href="#top" class="brand" aria-label="Ivorist home">
+        <svg width="30" height="30" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="gemGrad" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#effff6"/>
+              <stop offset="0.5" stop-color="#34d399"/>
+              <stop offset="1" stop-color="#effff6"/>
+            </linearGradient>
+          </defs>
+          <path d="M18 6 L30 18 L18 30 L6 18 Z" stroke="url(#gemGrad)" stroke-width="2.2" stroke-linejoin="round" fill="none"/>
+          <path d="M18 12.5 L23.5 18 L18 23.5 L12.5 18 Z" stroke="#4ade80" stroke-opacity="0.35" stroke-width="1.4" stroke-linejoin="round" fill="none"/>
+          <path d="M18 2 V6 M18 30 V34 M2 18 H6 M30 18 H34" stroke="#4ade80" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="18" cy="2" r="1.8" fill="#4ade80"/>
+          <circle cx="18" cy="34" r="1.8" fill="#4ade80"/>
+          <circle cx="2" cy="18" r="1.8" fill="#4ade80"/>
+          <circle cx="34" cy="18" r="1.8" fill="#4ade80"/>
+        </svg>
+        <span class="brand-name">IVORIST</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#solutions">Solutions</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#team">Team</a></li>
+      </ul>
+
+      <a href="#contact" class="btn btn-primary nav-cta">Say hello</a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero-decor" aria-hidden="true">
+        <span class="glow glow-1"></span>
+        <span class="glow glow-2"></span>
+        <span class="dmd" style="top:40%; left:9%; --size:62px; --alpha:.55"></span>
+      </div>
+      <div class="container hero-inner">
+        <p class="eyebrow hero-eyebrow"><span class="pulse-dot"></span> Hardware&ensp;·&ensp;Software&ensp;·&ensp;One team</p>
+        <h1 class="hero-title">We build the <span class="grad-text">whole</span> product.</h1>
+        <p class="lede">
+          We're a four-person studio that covers both halves of a product — the
+          boards and firmware, the apps and cloud. One brief, one team, and
+          what ships actually works like one thing.
+        </p>
+        <div class="hero-cta">
+          <a href="#solutions" class="btn btn-primary">See what we do</a>
+          <a href="#team" class="btn btn-ghost">Meet the team <span class="arrow">→</span></a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-num">04</div>
+            <div class="stat-label">Founders.<br/>That's the whole team.</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">HW<span class="amp">+</span>SW</div>
+            <div class="stat-label">No coordinator<br/>in the middle.</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Designed and<br/>shipped in-house.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <div class="marquee-row">
+          <span>Embedded Systems</span><i>◆</i>
+          <span>PCB Design</span><i>◆</i>
+          <span>Firmware</span><i>◆</i>
+          <span>IoT Devices</span><i>◆</i>
+          <span>Web Platforms</span><i>◆</i>
+          <span>Mobile Apps</span><i>◆</i>
+          <span>Cloud &amp; APIs</span><i>◆</i>
+          <span>AI &amp; Automation</span><i>◆</i>
+        </div>
+        <div class="marquee-row">
+          <span>Embedded Systems</span><i>◆</i>
+          <span>PCB Design</span><i>◆</i>
+          <span>Firmware</span><i>◆</i>
+          <span>IoT Devices</span><i>◆</i>
+          <span>Web Platforms</span><i>◆</i>
+          <span>Mobile Apps</span><i>◆</i>
+          <span>Cloud &amp; APIs</span><i>◆</i>
+          <span>AI &amp; Automation</span><i>◆</i>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="section">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">Who we are</p>
+          <h2>Why we started <span class="grad-text">Ivorist</span></h2>
+        </header>
+
+        <div class="about-grid">
+          <div class="about-copy reveal">
+            <p>
+              We kept running into the same problem from both sides: hardware
+              companies that can't write a good line of software, and software
+              companies that won't go near a schematic. One side waits on the
+              other, timelines slip, and the product pays for it.
+            </p>
+            <p>
+              So we learned each other's side of the wall, properly. The person
+              laying out your board is on the call when your app's first version
+              gets sketched, and nobody here treats either half like it's
+              somebody else's job.
+            </p>
+          </div>
+          <div class="about-cards reveal">
+            <div class="mini-card">
+              <div class="mini-num">01</div>
+              <h3>One roof, both halves</h3>
+              <p>The board, its firmware, the app, the back end. One small team owns all of it, start to finish.</p>
+            </div>
+            <div class="mini-card">
+              <div class="mini-num">02</div>
+              <h3>No translators</h3>
+              <p>You talk to whoever writes your code or routes your traces. Answers come back quickly because the person you're asking is the person doing the work.</p>
+            </div>
+            <div class="mini-card">
+              <div class="mini-num">03</div>
+              <h3>Boring beats clever</h3>
+              <p>We read each other's code, re-check our own, and argue over a component choice before committing to it. Not glamorous. It's just why the product keeps working.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SOLUTIONS ============ -->
+    <section id="solutions" class="section section-alt">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">What we do</p>
+          <h2>Pick a side. <span class="grad-text">Or bring us both.</span></h2>
+          <p class="section-sub">Most clients arrive with one half finished. A fair number arrive with the seam where the two sides keep fighting. That's usually exactly where things go wrong.</p>
+        </header>
+
+        <div class="solution-grid">
+          <article class="solution-card reveal">
+            <div class="solution-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="6" y="6" width="12" height="12" rx="2"/>
+                <path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/>
+              </svg>
+            </div>
+            <span class="solution-tag">Hardware</span>
+            <h3>Anything with a board in it</h3>
+            <ul class="solution-list">
+              <li>PCB design &amp; circuit engineering</li>
+              <li>Embedded systems &amp; firmware</li>
+              <li>IoT &amp; smart device development</li>
+              <li>Prototyping &amp; production support</li>
+            </ul>
+          </article>
+
+          <article class="solution-card reveal">
+            <div class="solution-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m8 8-4 4 4 4"/>
+                <path d="m16 8 4 4-4 4"/>
+                <path d="m13 6-2 12"/>
+              </svg>
+            </div>
+            <span class="solution-tag">Software</span>
+            <h3>And the software around it</h3>
+            <ul class="solution-list">
+              <li>Web platforms &amp; dashboards</li>
+              <li>Mobile apps</li>
+              <li>Cloud backends &amp; APIs</li>
+              <li>AI, data &amp; automation</li>
+            </ul>
+          </article>
+        </div>
+
+        <p class="solution-footnote reveal">
+          If your problem lives squarely in one of those worlds, we're glad to take it.
+          If it sits right on the line between them — this studio was built for exactly that.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ PROCESS ============ -->
+    <section id="process" class="section">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">How we work</p>
+          <h2>How a project actually runs.</h2>
+        </header>
+
+        <ol class="process-grid">
+          <li class="process-card reveal">
+            <div class="step-num">01</div>
+            <h3>Discover</h3>
+            <p>It starts with questions — some of them slightly annoying. Who is this actually for? What would "done" look like? We don't pick up tools until the answers are agreed.</p>
+          </li>
+          <li class="process-card reveal">
+            <div class="step-num">02</div>
+            <h3>Design</h3>
+            <p>Schematics, system architecture and screens are designed together. Obvious, right? Most teams skip it, which is how an app discovers the board's quirks halfway to launch.</p>
+          </li>
+          <li class="process-card reveal">
+            <div class="step-num">03</div>
+            <h3>Build</h3>
+            <p>Real boards, real code, short loops. Prototype, test, break it on purpose, fix it, go again. You see working progress at every step instead of one big reveal.</p>
+          </li>
+          <li class="process-card reveal">
+            <div class="step-num">04</div>
+            <h3>Ship &amp; support</h3>
+            <p>We hand it over documented and tested, then stay reachable. Launch day is when a product usually needs the most help, not the least.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ TEAM ============ -->
+    <section id="team" class="section section-alt">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">The four of us</p>
+          <h2>There's no <span class="grad-text">account team</span> here.</h2>
+          <p class="section-sub">The names below are the people who write your firmware and route your boards. Talk to any of us, whenever.</p>
+        </header>
+
+        <div class="team-grid">
+          <article class="team-card reveal">
+            <div class="avatar avatar-1">R</div>
+            <h3>Robin</h3>
+            <p class="role">Co-Founder · Hardware Lead</p>
+            <p class="bio">Turns rough ideas into working boards. Has strong opinions on which components to trust and which quietly fail in the field.</p>
+          </article>
+
+          <article class="team-card reveal">
+            <div class="avatar avatar-2">J</div>
+            <h3>Jyot</h3>
+            <p class="role">Co-Founder · Software Lead</p>
+            <p class="bio">Writes most of the software here, firmware upward. Asks the uncomfortable questions about what happens when the power dips or the network drops.</p>
+          </article>
+
+          <article class="team-card reveal">
+            <div class="avatar avatar-3">MD</div>
+            <h3>Mohammed Daniyal</h3>
+            <p class="role">Co-Founder · Product &amp; Design</p>
+            <p class="bio">Owns how a product looks, feels and flows, so it makes sense to a stranger within ten seconds of picking it up.</p>
+          </article>
+
+          <article class="team-card reveal">
+            <div class="avatar avatar-4">U</div>
+            <h3>Umar</h3>
+            <p class="role">Co-Founder · Operations</p>
+            <p class="bio">Orders the parts, chases the deliveries, keeps timelines honest and clients informed. Want to know where your project really stands? Ask him.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-copy reveal">
+            <p class="eyebrow">Get in touch</p>
+            <h2>Tell us what you're <span class="grad-text">making</span>.</h2>
+            <p>
+              A rough sketch, a half-written spec, or a stubborn feeling that
+              this thing should exist — all of it counts. Send it over;
+              someone here reads every message properly, and you'll hear
+              back within a day.
+            </p>
+            <a class="contact-email" href="mailto:team@ivorists.com">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2"/>
+                <path d="m3 7 9 6 9-6"/>
+              </svg>
+              team@ivorists.com
+            </a>
+            <p class="contact-note">Remote-first · Working worldwide</p>
+          </div>
+
+          <form class="contact-form reveal" id="contactForm" novalidate>
+            <div class="form-row">
+              <label>
+                Name
+                <input type="text" name="name" placeholder="Your name" required />
+              </label>
+              <label>
+                Email
+                <input type="email" name="email" placeholder="you@company.com" required />
+              </label>
+            </div>
+            <label>
+              What are you building?
+              <textarea name="message" rows="5" placeholder="Smart device? Companion app? A bit of both? Give us the gist…" required></textarea>
+            </label>
+            <button type="submit" class="btn btn-primary btn-block">Send message</button>
+            <p class="form-success" id="formSuccess" hidden>
+              ✦ Got it — that landed with a person, not a queue.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a href="#top" class="brand brand-footer" aria-label="Ivorist home">
+        <svg width="24" height="24" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <path d="M18 6 L30 18 L18 30 L6 18 Z" stroke="url(#gemGrad)" stroke-width="2.2" stroke-linejoin="round" fill="none"/>
+          <path d="M18 12.5 L23.5 18 L18 23.5 L12.5 18 Z" stroke="#4ade80" stroke-opacity="0.35" stroke-width="1.4" stroke-linejoin="round" fill="none"/>
+          <path d="M18 2 V6 M18 30 V34 M2 18 H6 M30 18 H34" stroke="#4ade80" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="18" cy="2" r="1.8" fill="#4ade80"/>
+          <circle cx="18" cy="34" r="1.8" fill="#4ade80"/>
+          <circle cx="2" cy="18" r="1.8" fill="#4ade80"/>
+          <circle cx="34" cy="18" r="1.8" fill="#4ade80"/>
+        </svg>
+        <span class="brand-name">IVORIST</span>
+      </a>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="#about">About</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#process">Process</a>
+        <a href="#team">Team</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <p class="footer-copy">© <span id="year">2026</span> Ivorist. Designed and built in-house. Obviously.</p>
+    </div>
+  </footer>
+
+  <a class="to-top" id="toTop" href="#top" aria-label="Back to top">↑</a>
+
+  <script src="script.js"></script>
+</body>
+</html>

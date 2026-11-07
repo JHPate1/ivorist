@@ -1,0 +1,14 @@
+{
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
+  "name": "ivorist",
+  "compatibility_date": "2026-11-04",
+  "assets": {
+    "directory": "./"
+  },
+  //_DOMAIN_ROUTES_ custom domains (uncomment after the conflicting DNS
+  // records for ivorists.com / www are removed from the zone):
+  // "routes": [
+  //   { "pattern": "ivorists.com", "custom_domain": true },
+  //   { "pattern": "www.ivorists.com", "custom_domain": true }
+  // ]
+}
