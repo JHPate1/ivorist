@@ -11,7 +11,7 @@
     ]
   },
   "send_email": [
-    { "name": "SEND_EMAIL", "allowed_destination_addresses": ["hemalviral2011@gmail.com"] }
+    { "name": "SEND_EMAIL", "allowed_destination_addresses": ["team@ivorists.com"] }
   ],
   // Live routing notes:
   // - ivorists.com is attached in the Cloudflare dashboard (Workers custom

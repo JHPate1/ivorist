@@ -5,7 +5,7 @@
    founders' inbox through the SEND_EMAIL binding.
    ============================================================ */
 
-const DESTINATION = "hemalviral2011@gmail.com";
+const DESTINATION = "team@ivorists.com"; // real mailbox on IONOS
 const FROM = "team@ivorists.com";
 
 const LIMITS = { name: 120, email: 254, subject: 200, message: 5000 };
