@@ -1,5 +1,5 @@
 /* ============================================================
-   IVORIST — styles
+   IVORIST: styles
    ============================================================ */
 
 :root {
@@ -241,31 +241,6 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: bal
 }
 
 .hero-inner { position: relative; }
-
-.hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  border: 1px solid var(--border);
-  background: var(--card);
-  border-radius: 999px;
-  padding: 8px 18px;
-  font-size: 13px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-.pulse-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--green);
-  animation: pulse 2.2s ease-in-out infinite;
-}
-@keyframes pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4); }
-  50%      { box-shadow: 0 0 0 7px rgba(74, 222, 128, 0); }
-}
 
 .hero-title {
   margin: 26px auto 20px;
@@ -574,7 +549,7 @@ section[id] { scroll-margin-top: 84px; }
   background: rgba(74, 222, 128, 0.06);
   border: 1.5px solid rgba(74, 222, 128, 0.5);
 }
-/* flat, outlined initials — no fills */
+/* flat, outlined initials: no fills */
 
 .team-card h3 { font-size: 19px; }
 .role {
@@ -777,6 +752,5 @@ section[id] { scroll-margin-top: 84px; }
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .marquee-track { animation: none; }
-  .pulse-dot { animation: none; }
   .glow { animation: none; }
 }
