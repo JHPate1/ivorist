@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none">
+    <!-- Ivorist faceted gem: 8 facets around a square cut-out -->
+    <polygon points="18,4 32,18 22.67,18" fill="#2f6b49"/>
+    <polygon points="18,4 22.67,18 18,13.33" fill="#468a60"/>
+    <polygon points="32,18 18,32 18,22.67" fill="#b9dcc3"/>
+    <polygon points="32,18 18,22.67 22.67,18" fill="#2f6b49"/>
+    <polygon points="18,32 4,18 13.33,18" fill="#1d3d2a"/>
+    <polygon points="18,32 13.33,18 18,22.67" fill="#b9dcc3"/>
+    <polygon points="4,18 18,4 18,13.33" fill="#468a60"/>
+    <polygon points="4,18 18,13.33 13.33,18" fill="#1d3d2a"/>
+</svg>
