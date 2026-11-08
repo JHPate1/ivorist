@@ -1,0 +1,20 @@
+{
+  "projects": [
+    {
+      "id": "archivist",
+      "number": "001",
+      "name": "Archivist",
+      "category": "Software \u00b7 Local AI",
+      "summary": "A local-first document research tool for semantic search and exploring personal document collections.",
+      "url": "archivist.html",
+      "status": "in-development",
+      "technologies": [
+        "Python",
+        "all-MiniLM-L6-v2",
+        "FAISS",
+        "Ollama",
+        "PyMuPDF"
+      ]
+    }
+  ]
+}

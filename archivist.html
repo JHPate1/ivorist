@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Archivist | Ivorist</title>
+    <meta
+        name="description"
+        content="Archivist is a local-first document research tool in development at Ivorist."
+    >
+    <meta name="theme-color" content="#08090a">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body id="top">
+
+    <div class="background-glow" aria-hidden="true"></div>
+
+    <header class="site-header" id="siteHeader">
+        <nav class="nav container" aria-label="Main navigation">
+
+            <a href="index.html" class="brand" aria-label="Ivorist home">
+                <svg class="brand-logo" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+                    <path d="M18 6 L30 18 L18 30 L6 18 Z" stroke="#4ade80" stroke-width="2.2"/>
+                    <path d="M18 12.5 L23.5 18 L18 23.5 L12.5 18 Z" stroke="#4ade80" stroke-opacity="0.35" stroke-width="1.4"/>
+                    <path d="M18 2 V6 M18 30 V34 M2 18 H6 M30 18 H34" stroke="#4ade80" stroke-width="2"/>
+                    <circle cx="18" cy="2" r="1.8" fill="#4ade80"/>
+                    <circle cx="18" cy="34" r="1.8" fill="#4ade80"/>
+                    <circle cx="2" cy="18" r="1.8" fill="#4ade80"/>
+                    <circle cx="34" cy="18" r="1.8" fill="#4ade80"/>
+                </svg>
+
+                <span class="brand-name">IVORIST</span>
+            </a>
+
+            <button
+                class="nav-toggle"
+                id="navToggle"
+                aria-label="Toggle navigation"
+                aria-expanded="false"
+                aria-controls="navLinks"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html" aria-current="page">Projects</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <main>
+
+        <section class="page-hero container">
+
+            <p class="eyebrow reveal">
+                PROJECT 001 / SOFTWARE
+            </p>
+
+            <div class="project-title-row reveal">
+                <h1 class="page-title">
+                    Archivist<span class="title-period">.</span>
+                </h1>
+
+                <span class="status status-development">
+                    IN DEVELOPMENT
+                </span>
+            </div>
+
+            <p class="page-description reveal">
+                Finding something in a large collection of documents
+                shouldn't mean remembering the exact words used in it.
+                Archivist is being built to make that process easier.
+            </p>
+
+        </section>
+
+
+        <section class="section container">
+
+            <div class="project-overview">
+
+                <div class="section-heading reveal">
+                    <p class="eyebrow">THE IDEA</p>
+
+                    <h2>
+                        Search your documents
+                        <span class="gradient-text">by meaning.</span>
+                    </h2>
+                </div>
+
+                <div class="prose reveal">
+
+                    <p>
+                        Most file searches depend heavily on keywords.
+                        That works when you know the exact phrase you're
+                        looking for, but it becomes less useful when you
+                        only remember the general idea or context.
+                    </p>
+
+                    <p>
+                        Archivist is being developed as a local-first
+                        document research tool. It processes a user's
+                        documents, builds a searchable index, and uses
+                        semantic retrieval to find passages related
+                        to a question.
+                    </p>
+
+                    <p>
+                        The aim is to make personal document collections
+                        easier to explore while keeping the work on
+                        the user's own machine.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="section section-alt">
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+                    <p class="eyebrow">CURRENT DEVELOPMENT</p>
+
+                    <h2>
+                        What works
+                        <span class="gradient-text">so far.</span>
+                    </h2>
+
+                    <p class="section-description">
+                        The current build is focused on the core
+                        document-search workflow.
+                    </p>
+                </div>
+
+                <div class="development-grid">
+
+                    <article class="development-card reveal">
+                        <span class="development-index">01</span>
+
+                        <h3>Document ingestion</h3>
+
+                        <p>
+                            Documents can be read and their text extracted
+                            so that the contents can be prepared for search.
+                        </p>
+                    </article>
+
+                    <article class="development-card reveal">
+                        <span class="development-index">02</span>
+
+                        <h3>Semantic indexing</h3>
+
+                        <p>
+                            Text is converted into embeddings and stored
+                            in a searchable index. This makes it possible
+                            to retrieve related passages without relying
+                            only on exact keyword matches.
+                        </p>
+                    </article>
+
+                    <article class="development-card reveal">
+                        <span class="development-index">03</span>
+
+                        <h3>Local model integration</h3>
+
+                        <p>
+                            The project can connect retrieved material
+                            to a locally run language model, allowing
+                            users to explore the results in more detail.
+                        </p>
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="section container">
+
+            <div class="project-overview">
+
+                <div class="section-heading reveal">
+                    <p class="eyebrow">WHERE WE WANT TO TAKE IT</p>
+
+                    <h2>
+                        From search tool to
+                        <span class="gradient-text">research workspace.</span>
+                    </h2>
+                </div>
+
+                <div class="prose reveal">
+
+                    <p>
+                        The current version is a starting point. We want
+                        to develop Archivist into something more useful
+                        for people who regularly work with large amounts
+                        of information.
+                    </p>
+
+                    <p>
+                        That means improving the document workflow,
+                        making search results easier to inspect, and
+                        giving users better ways to work with the
+                        information they find.
+                    </p>
+
+                    <p>
+                        Another important part of the direction is
+                        keeping the system local-first. Users should
+                        have control over their documents and where
+                        their information is processed.
+                    </p>
+
+                    <p>
+                        These are development goals, not features that
+                        are all available today. The project will
+                        continue to change as we build and test it.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="section section-alt">
+
+            <div class="container">
+
+                <div class="tech-panel reveal">
+
+                    <div>
+                        <p class="eyebrow">PROJECT DETAILS</p>
+
+                        <h2>Archivist</h2>
+
+                        <p>
+                            An Ivorist software project currently
+                            under active development.
+                        </p>
+                    </div>
+
+                    <div class="project-facts">
+                        <div>
+                            <span>TYPE</span>
+                            <strong>Document research</strong>
+                        </div>
+
+                        <div>
+                            <span>APPROACH</span>
+                            <strong>Local-first</strong>
+                        </div>
+
+                        <div>
+                            <span>STATUS</span>
+                            <strong>In development</strong>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="section container">
+
+            <div class="about-bottom reveal">
+
+                <div>
+                    <p class="eyebrow">MORE FROM IVORIST</p>
+
+                    <h2>
+                        See our other
+                        <span class="gradient-text">work.</span>
+                    </h2>
+                </div>
+
+                <a href="projects.html" class="button button-primary">
+                    All projects
+                    <span aria-hidden="true">↗</span>
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+
+            <a href="index.html" class="brand">
+                <svg class="brand-logo" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+                    <path d="M18 6 L30 18 L18 30 L6 18 Z" stroke="#4ade80" stroke-width="2.2"/>
+                    <path d="M18 2 V6 M18 30 V34 M2 18 H6 M30 18 H34" stroke="#4ade80" stroke-width="2"/>
+                    <circle cx="18" cy="2" r="1.8" fill="#4ade80"/>
+                    <circle cx="18" cy="34" r="1.8" fill="#4ade80"/>
+                    <circle cx="2" cy="18" r="1.8" fill="#4ade80"/>
+                    <circle cx="34" cy="18" r="1.8" fill="#4ade80"/>
+                </svg>
+
+                <span class="brand-name">IVORIST</span>
+            </a>
+
+            <p class="footer-copy">
+                © <span id="year">2026</span> Ivorist
+            </p>
+
+            <a href="#top" class="footer-top-link">
+                Back to top ↑
+            </a>
+
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

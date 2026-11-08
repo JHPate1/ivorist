@@ -5,11 +5,11 @@ Live at [ivorists.com](https://ivorists.com).
 
 Plain HTML/CSS/JS: no build step, no dependencies.
 
-- `index.html`: the whole site (hero, about, solutions, process, team, contact)
-- `styles.css`: styling (dark theme, green accent, diamond motif)
-- `script.js`: nav, scroll reveal, contact form (posts to `/api/message`)
-- `worker.js`: form endpoint, emails every submission to the founders' inbox
-- `wrangler.jsonc`: Cloudflare config (assets, worker, email binding, domains)
+- `*.html`: multi-page site (index, about, archivist, contact, projects, services, team)
+- `projects.json`: project directory data
+- `styles.css` / `script.js`: shared styling and interactions (contact form posts to `/api/message`)
+- `worker.js`: form endpoint, emails every submission to the team mailbox
+- `wrangler.jsonc`: Cloudflare config (assets, worker, email binding)
 
 ## Deploying
 
