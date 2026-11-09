@@ -8,7 +8,7 @@ Plain HTML/CSS/JS: no build step, no dependencies.
 - `*.html`: multi-page site (index, about, archivist, contact, projects, services, team)
 - `projects.json`: project directory data
 - `styles.css` / `script.js`: shared styling and interactions (contact form posts to `/api/message`)
-- `logo.svg`: brand mark, the faceted gem (also inlined in every page and used as favicon)
+- `logo.png`: brand mark, the faceted gem (transparent background; also used as favicon)
 - `worker.js`: form endpoint, emails every submission to the team mailbox
 - `wrangler.jsonc`: Cloudflare config (assets, worker, email binding)
 
