@@ -23,6 +23,19 @@
         "Ollama",
         "PyMuPDF"
       ]
+    },
+    {
+      "id": "form-forge",
+      "number": "002",
+      "name": "Form Forge",
+      "category": "Software",
+      "summary": "Project pages can now be generated from a plain form, no zip attached.",
+      "url": "projects/form-forge/index.html",
+      "liveUrl": "",
+      "repoUrl": "",
+      "status": "released",
+      "highlights": [],
+      "technologies": "Cloudflare Workers, Node, Discord"
     }
   ]
 }
