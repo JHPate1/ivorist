@@ -4,10 +4,18 @@
       "id": "archivist",
       "number": "001",
       "name": "Archivist",
-      "category": "Software \u00b7 Local AI",
+      "category": "Software · Local AI",
       "summary": "A local-first document research tool for semantic search and exploring personal document collections.",
       "url": "archivist.html",
+      "liveUrl": "",
+      "repoUrl": "",
       "status": "in-development",
+      "highlights": [
+        "Document search",
+        "Local processing",
+        "Semantic retrieval"
+      ],
+      "feature": "The current build focuses on document indexing and semantic search. The longer-term goal is to make it easier to find information across personal document collections without relying on a cloud service.",
       "technologies": [
         "Python",
         "all-MiniLM-L6-v2",

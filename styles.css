@@ -1043,6 +1043,18 @@ p {
 }
 
 
+.status-released::before {
+    content: "";
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: var(--mint);
+}
+
+
 .project-card-content {
     display: flex;
     align-items: flex-end;
@@ -1070,6 +1082,16 @@ p {
 
 
 .project-card-content .button {
+    flex-shrink: 0;
+}
+
+
+.project-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+
     flex-shrink: 0;
 }
 

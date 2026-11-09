@@ -287,3 +287,203 @@ if (contactForm) {
     });
 
 }
+
+
+/* -------------------------
+   6. PROJECT DIRECTORY
+   ------------------------- */
+
+// The projects page and the home page featured project are
+// rendered from projects.json at load time. The markup already
+// on the pages stays in place as a fallback in case the fetch
+// fails (for example when opened without a server).
+
+function escapeHtml(value) {
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+
+}
+
+const statusLabels = {
+    "in-development": "IN DEVELOPMENT",
+    "released": "RELEASED",
+    "live": "LIVE"
+};
+
+function statusClass(project) {
+
+    if (project.status === "released" || project.status === "live") {
+        return "status-released";
+    }
+
+    return "status-development";
+
+}
+
+
+function buildProjectCard(project) {
+
+    const statusLabel = statusLabels[project.status] || "IN DEVELOPMENT";
+
+    const actions = [];
+
+    if (project.url) {
+        actions.push(
+            `<a href="${escapeHtml(project.url)}" class="button button-outline">View project <span aria-hidden="true">↗</span></a>`
+        );
+    }
+
+    if (project.liveUrl) {
+        actions.push(
+            `<a href="${escapeHtml(project.liveUrl)}" class="button button-primary" target="_blank" rel="noopener noreferrer">Visit live <span aria-hidden="true">↗</span></a>`
+        );
+    }
+
+    if (project.repoUrl) {
+        actions.push(
+            `<a href="${escapeHtml(project.repoUrl)}" class="text-link" target="_blank" rel="noopener noreferrer">View source <span aria-hidden="true">↗</span></a>`
+        );
+    }
+
+    const highlights = (project.highlights || []).map((item) => `<span>${escapeHtml(String(item).toUpperCase())}</span>`).join("");
+
+    return `
+        <article class="project-card">
+
+            <div class="project-card-top">
+                <span class="project-number">${escapeHtml(project.number || "")}</span>
+                <span class="status ${statusClass(project)}">${statusLabel}</span>
+            </div>
+
+            <div class="project-card-content">
+
+                <div>
+                    <p class="eyebrow">${escapeHtml(String(project.category || "").toUpperCase())}</p>
+
+                    <h2>${escapeHtml(project.name || "")}</h2>
+
+                    <p>${escapeHtml(project.summary || "")}</p>
+                </div>
+
+                <div class="project-actions">
+                    ${actions.join("\n\n                    ")}
+                </div>
+
+            </div>
+
+            <div class="project-card-footer">${highlights}</div>
+
+        </article>
+    `;
+
+}
+
+
+function applyFeaturedProject(project) {
+
+    if (!project) {
+        return;
+    }
+
+    const numberElement = document.getElementById("featuredNumber");
+    const statusElement = document.getElementById("featuredStatus");
+    const nameElement = document.getElementById("featuredName");
+    const summaryElement = document.getElementById("featuredSummary");
+    const featureElement = document.getElementById("featuredFeature");
+    const linkElement = document.getElementById("featuredLink");
+
+    if (numberElement && project.number) {
+        numberElement.textContent = `PROJECT ${project.number}`;
+    }
+
+    if (statusElement) {
+        statusElement.textContent = statusLabels[project.status] || "IN DEVELOPMENT";
+    }
+
+    if (nameElement && project.name) {
+        nameElement.textContent = project.name;
+    }
+
+    if (summaryElement && project.summary) {
+        summaryElement.textContent = project.summary;
+    }
+
+    if (featureElement) {
+
+        if (project.feature) {
+            featureElement.textContent = project.feature;
+        } else {
+            featureElement.remove();
+        }
+
+    }
+
+    if (linkElement) {
+
+        if (project.url) {
+            linkElement.href = project.url;
+        }
+
+        if (project.name) {
+            linkElement.innerHTML = `Explore ${escapeHtml(project.name)} <span aria-hidden="true">↗</span>`;
+        }
+
+    }
+
+}
+
+
+function renderProjects() {
+
+    const list = document.getElementById("projectList");
+    const counter = document.getElementById("projectCount");
+    const featured = document.getElementById("featuredName");
+
+    if (!list && !featured) {
+        return;
+    }
+
+    fetch("projects.json")
+        .then((response) => {
+
+            if (!response.ok) {
+                throw new Error("projects.json could not be loaded.");
+            }
+
+            return response.json();
+
+        })
+        .then((data) => {
+
+            const projects = Array.isArray(data.projects) ? data.projects : [];
+
+            if (!projects.length) {
+                return;
+            }
+
+            if (list) {
+                list.innerHTML = projects.map(buildProjectCard).join("\n\n");
+            }
+
+            if (counter) {
+                counter.textContent = `${String(projects.length).padStart(2, "0")} LISTED`;
+            }
+
+            if (featured) {
+                applyFeaturedProject(projects[0]);
+            }
+
+        })
+        .catch(() => {
+
+            // The static markup on the page stays visible as the fallback.
+
+        });
+
+}
+
+renderProjects();
