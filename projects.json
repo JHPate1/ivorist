@@ -40,6 +40,19 @@
         "Node",
         "Discord"
       ]
+    },
+    {
+      "id": "probe-test",
+      "number": "003",
+      "name": "Probe Test",
+      "category": "Software",
+      "summary": "Verifying NVIDIA endpoint live",
+      "url": "projects/probe-test/index.html",
+      "liveUrl": "",
+      "repoUrl": "",
+      "status": "released",
+      "highlights": [],
+      "technologies": []
     }
   ]
 }
