@@ -35,7 +35,11 @@
       "repoUrl": "",
       "status": "released",
       "highlights": [],
-      "technologies": "Cloudflare Workers, Node, Discord"
+      "technologies": [
+        "Cloudflare Workers",
+        "Node",
+        "Discord"
+      ]
     }
   ]
 }
