@@ -53,6 +53,19 @@
       "status": "released",
       "highlights": [],
       "technologies": []
+    },
+    {
+      "id": "log-test",
+      "number": "004",
+      "name": "Log Test",
+      "category": "Software",
+      "summary": "Checking tail logs",
+      "url": "projects/log-test/index.html",
+      "liveUrl": "",
+      "repoUrl": "",
+      "status": "released",
+      "highlights": [],
+      "technologies": []
     }
   ]
 }
