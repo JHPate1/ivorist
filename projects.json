@@ -66,6 +66,19 @@
       "status": "released",
       "highlights": [],
       "technologies": []
+    },
+    {
+      "id": "safe-concurrency-test-mw9mdpo1",
+      "number": "005",
+      "name": "Safe Concurrency Test mw9mdpo1",
+      "category": "Software",
+      "summary": "Verifying no status stomping",
+      "url": "projects/safe-concurrency-test-mw9mdpo1/index.html",
+      "liveUrl": "",
+      "repoUrl": "",
+      "status": "released",
+      "highlights": [],
+      "technologies": []
     }
   ]
 }
