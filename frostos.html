@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FrostOS | Ivorist</title>
+    <meta
+        name="description"
+        content="FrostOS is a 64-bit custom kernel operating system for lightweight embedded work, in development at Ivorist."
+    >
+    <meta name="theme-color" content="#070a0d">
+
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- FrostOS theme: ice over steel. Same layout, colder palette. -->
+    <style>
+        :root {
+            --bg: #070a0d;
+            --bg-secondary: #0a1116;
+            --surface: #0d1620;
+            --surface-hover: #112030;
+
+            --text: #eef4f9;
+            --muted: #97a6b4;
+            --subtle: #64737f;
+
+            --green: #7dd3fc;
+            --green-dark: #38bdf8;
+            --mint: #d9f1ff;
+
+            --border: rgba(214, 240, 255, 0.10);
+            --border-strong: rgba(214, 240, 255, 0.18);
+
+            --gradient: linear-gradient(
+                115deg,
+                #f0f9ff 0%,
+                #93e5ff 48%,
+                #38bdf8 100%
+            );
+        }
+
+        .background-glow {
+            filter: hue-rotate(0deg);
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <div class="background-glow" aria-hidden="true"></div>
+
+    <header class="site-header" id="siteHeader">
+        <nav class="nav container" aria-label="Main navigation">
+
+            <a href="index.html" class="brand" aria-label="Ivorist home">
+                <img src="logo.png" alt="" class="brand-logo" aria-hidden="true">
+
+                <span class="brand-name">IVORIST</span>
+            </a>
+
+            <button
+                class="nav-toggle"
+                id="navToggle"
+                aria-label="Toggle navigation"
+                aria-expanded="false"
+                aria-controls="navLinks"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html" aria-current="page">Projects</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <main>
+
+        <section class="page-hero container">
+
+            <p class="eyebrow reveal">
+                PROJECT 002 / SYSTEMS
+            </p>
+
+            <div class="project-title-row reveal">
+                <h1 class="page-title">
+                    FrostOS<span class="title-period">.</span>
+                </h1>
+
+                <span class="status status-development">
+                    IN DEVELOPMENT
+                </span>
+            </div>
+
+            <p class="page-description reveal">
+                A 64-bit operating system built on a custom kernel,
+                designed for lightweight embedded workloads such as
+                corporate computer fleets. Not another distro. A
+                kernel of our own.
+            </p>
+
+        </section>
+
+
+        <section class="section container">
+
+            <div class="project-overview">
+
+                <div class="section-heading reveal">
+                    <p class="eyebrow">THE IDEA</p>
+
+                    <h2>
+                        A kernel that stays
+                        <span class="gradient-text">skinny.</span>
+                    </h2>
+                </div>
+
+                <div class="prose reveal">
+
+                    <p>
+                        Most machines in an office do one job all day.
+                        They browse, they run a few internal programs,
+                        they sit on a desk for years. Give them a full
+                        general purpose desktop stack and most of it
+                        is dead weight.
+                    </p>
+
+                    <p>
+                        FrostOS approaches the problem at the lowest
+                        layer: a custom 64-bit kernel written to boot
+                        fast, use little memory, and stay up through
+                        long unattended shifts. The desktop around it
+                        is assembled from exactly the parts each
+                        deployment needs, nothing more.
+                    </p>
+
+                    <p>
+                        The first target class for the system is
+                        lightweight embedded work: point of sale
+                        terminals, signage, managed desktops, and
+                        locked-down corporate computers that need
+                        to be predictable rather than powerful.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="section section-alt">
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+                    <p class="eyebrow">CURRENT DEVELOPMENT</p>
+
+                    <h2>
+                        What works
+                        <span class="gradient-text">so far.</span>
+                    </h2>
+
+                    <p class="section-description">
+                        The build is currently concentrated on the
+                        kernel core and its most basic services.
+                    </p>
+                </div>
+
+                <div class="development-grid">
+
+                    <article class="development-card reveal">
+                        <span class="development-index">01</span>
+
+                        <h3>Kernel core</h3>
+
+                        <p>
+                            The 64-bit kernel bring-up: boot, memory
+                            management, and a scheduler tuned for a
+                            small number of long-running tasks
+                            instead of thousands of chatty threads.
+                        </p>
+                    </article>
+
+                    <article class="development-card reveal">
+                        <span class="development-index">02</span>
+
+                        <h3>Frost layer</h3>
+
+                        <p>
+                            A thin compatibility layer that gives
+                            existing Linux applications a familiar
+                            surface to run against, so useful software
+                            is available before any porting work.
+                        </p>
+                    </article>
+
+                    <article class="development-card reveal">
+                        <span class="development-index">03</span>
+
+                        <h3>Image pipeline</h3>
+
+                        <p>
+                            The build system produces one reproducible
+                            system image per deployment role, so a
+                            fleet of computers can be provisioned and
+                            replaced like hardware, not pets.
+                        </p>
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="section container">
+
+            <div class="project-overview">
+
+                <div class="section-heading reveal">
+                    <p class="eyebrow">WHERE WE WANT TO TAKE IT</p>
+
+                    <h2>
+                        Run the software you
+                        <span class="gradient-text">already own.</span>
+                    </h2>
+                </div>
+
+                <div class="prose reveal">
+
+                    <p>
+                        The plan for FrostOS includes a compatibility
+                        layer for Linux applications, and a Windows
+                        application layer behind it. Business software
+                        usually outlives the machines it runs on, and
+                        rewriting it before switching platforms is a
+                        cost few orgs can justify.
+                    </p>
+
+                    <p>
+                        The combination is meant to work like this:
+                        a corporate computer runs FrostOS at its core,
+                        gets the light footprint and long uptimes of a
+                        custom kernel, and keeps running the internal
+                        programs it was already using, Linux ones
+                        through the native layer and Windows ones
+                        through the compatibility path.
+                    </p>
+
+                    <p>
+                        FrostOS is in early development. The current
+                        estimate for a first public release is
+                        Q2 of 2027. That date is a plan, and it will
+                        move as the kernel proves itself or fails to.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="section section-alt">
+
+            <div class="container">
+
+                <div class="tech-panel reveal">
+
+                    <div>
+                        <p class="eyebrow">PROJECT DETAILS</p>
+
+                        <h2>FrostOS</h2>
+
+                        <p>
+                            An Ivorist systems project, 64-bit custom
+                            kernel, in development.
+                        </p>
+                    </div>
+
+                    <div class="project-facts">
+                        <div>
+                            <span>TYPE</span>
+                            <strong>Operating system</strong>
+                        </div>
+
+                        <div>
+                            <span>APPROACH</span>
+                            <strong>Custom 64-bit kernel</strong>
+                        </div>
+
+                        <div>
+                            <span>COMPAT</span>
+                            <strong>Linux, then Windows apps</strong>
+                        </div>
+
+                        <div>
+                            <span>TARGET</span>
+                            <strong>Q2 2027</strong>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="section container">
+
+            <div class="about-bottom reveal">
+
+                <div>
+                    <p class="eyebrow">MORE FROM IVORIST</p>
+
+                    <h2>
+                        See our other
+                        <span class="gradient-text">work.</span>
+                    </h2>
+                </div>
+
+                <a href="projects.html" class="button button-primary">
+                    All projects
+                    <span aria-hidden="true">↗</span>
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+
+            <a href="index.html" class="brand">
+                <img src="logo.png" alt="" class="brand-logo" aria-hidden="true">
+
+                <span class="brand-name">IVORIST</span>
+            </a>
+
+            <p class="footer-copy">
+                © <span id="year">2026</span> Ivorist
+            </p>
+
+            <a href="#top" class="footer-top-link">
+                Back to top ↑
+            </a>
+
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

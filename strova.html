@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Strova | Ivorist</title>
+    <meta
+        name="description"
+        content="Strova is an open source 2D animation engine by Ivorist, releasing Q1 2027."
+    >
+    <meta name="theme-color" content="#0d0a08">
+
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Strova theme: warm studio light on charcoal. Same layout, different temper. -->
+    <style>
+        :root {
+            --bg: #0d0a08;
+            --bg-secondary: #141009;
+            --surface: #1a1411;
+            --surface-hover: #231a14;
+
+            --text: #f7f1ea;
+            --muted: #b3a799;
+            --subtle: #7d6f61;
+
+            --green: #fdba74;
+            --green-dark: #fb923c;
+            --mint: #ffe8d6;
+
+            --border: rgba(255, 232, 214, 0.11);
+            --border-strong: rgba(255, 232, 214, 0.19);
+
+            --gradient: linear-gradient(
+                115deg,
+                #fff5eb 0%,
+                #ffca8a 46%,
+                #f97b4f 100%
+            );
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <div class="background-glow" aria-hidden="true"></div>
+
+    <header class="site-header" id="siteHeader">
+        <nav class="nav container" aria-label="Main navigation">
+
+            <a href="index.html" class="brand" aria-label="Ivorist home">
+                <img src="logo.png" alt="" class="brand-logo" aria-hidden="true">
+
+                <span class="brand-name">IVORIST</span>
+            </a>
+
+            <button
+                class="nav-toggle"
+                id="navToggle"
+                aria-label="Toggle navigation"
+                aria-expanded="false"
+                aria-controls="navLinks"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html" aria-current="page">Projects</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <main>
+
+        <section class="page-hero container">
+
+            <p class="eyebrow reveal">
+                PROJECT 003 / SOFTWARE
+            </p>
+
+            <div class="project-title-row reveal">
+                <h1 class="page-title">
+                    Strova<span class="title-period">.</span>
+                </h1>
+
+                <span class="status status-development">
+                    IN DEVELOPMENT
+                </span>
+            </div>
+
+            <p class="page-description reveal">
+                An open source 2D animation engine that keeps up
+                with you. Draw a stroke and it moves. Move an object
+                and it comes alive. Targeting a release in Q1 2027.
+            </p>
+
+        </section>
+
+
+        <section class="section container">
+
+            <div class="project-overview">
+
+                <div class="section-heading reveal">
+                    <p class="eyebrow">THE IDEA</p>
+
+                    <h2>
+                        Animation that moves
+                        <span class="gradient-text">when you do.</span>
+                    </h2>
+                </div>
+
+                <div class="prose reveal">
+
+                    <p>
+                        Traditional animation tools make you split a
+                        thought into five dialogs: a keyframe here, a
+                        tween there, an easing curve somewhere else.
+                        The result is software that technically works,
+                        but feels like filling in paperwork about the
+                        motion rather than making it.
+                    </p>
+
+                    <p>
+                        Strova starts from the gesture. You draw a
+                        stroke, or move an object, and the motion you
+                        performed becomes the animation. Timing is
+                        captured from how you did it, not from a panel
+                        you configure afterward. The system is built
+                        around that one idea, and everything else
+                        serves it.
+                    </p>
+
+                    <p>
+                        Strova is open source. Real artists deserve
+                        tools whose bones they can read, and a
+                        community should never lose its work to a
+                        company that stops caring. The source stays
+                        open, and the project releases in Q1 of 2027.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="section section-alt">
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+                    <p class="eyebrow">THE INSTRUMENTS</p>
+
+                    <h2>
+                        Built around
+                        <span class="gradient-text">motion.</span>
+                    </h2>
+
+                    <p class="section-description">
+                        Three pillars carry the engine design.
+                    </p>
+                </div>
+
+                <div class="development-grid">
+
+                    <article class="development-card reveal">
+                        <span class="development-index">01</span>
+
+                        <h3>Flow</h3>
+
+                        <p>
+                            Make an animation by simply stroking or
+                            moving objects. The path you draw is the
+                            motion, the pace of your hand is the
+                            timing. Choreography at the speed of
+                            sketching.
+                        </p>
+                    </article>
+
+                    <article class="development-card reveal">
+                        <span class="development-index">02</span>
+
+                        <h3>Custom brushes</h3>
+
+                        <p>
+                            Brushes are not presets you rent. Build
+                            your own for your own needs, tune their
+                            feel, texture, and behavior, and keep
+                            them as yours, shareable and portable.
+                        </p>
+                    </article>
+
+                    <article class="development-card reveal">
+                        <span class="development-index">03</span>
+
+                        <h3>Rapid exporting</h3>
+
+                        <p>
+                            Getting your work out should never be
+                            slower than making it. Rapid exporting
+                            pushes finished frames to video in
+                            seconds, keeping the loop from idea to
+                            shareable file short.
+                        </p>
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="section container">
+
+            <div class="project-overview">
+
+                <div class="section-heading reveal">
+                    <p class="eyebrow">WHAT WE MEAN BY SMOOTH</p>
+
+                    <h2>
+                        20x smoother, on the same
+                        <span class="gradient-text">hardware.</span>
+                    </h2>
+                </div>
+
+                <div class="prose reveal">
+
+                    <p>
+                        Strova is engineered to be dramatically
+                        smoother than the tools animators work in
+                        today, and the number is taken seriously:
+                        a playback target of roughly twenty times
+                        less latency and judder on the same machine,
+                        achieved in the engine rather than with fancy
+                        export settings.
+                    </p>
+
+                    <p>
+                        That comes from architecture: a playback path
+                        that never touches disk mid-render, cached
+                        rasterization shared between preview and
+                        export, and a timeline model that treats a
+                        scene as one living graph instead of frames
+                        to shuffle. The smoothness is a property of
+                        the engine, not a mode you switch on.
+                    </p>
+
+                    <p>
+                        Strova is in active development and has not
+                        shipped yet. The current estimate for a first
+                        public release is Q1 of 2027. Like any good
+                        story, the date may shift, but the promise,
+                        open source, does not.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="section section-alt">
+
+            <div class="container">
+
+                <div class="tech-panel reveal">
+
+                    <div>
+                        <p class="eyebrow">PROJECT DETAILS</p>
+
+                        <h2>Strova</h2>
+
+                        <p>
+                            An Ivorist software project, 2D animation
+                            engine, open source.
+                        </p>
+                    </div>
+
+                    <div class="project-facts">
+                        <div>
+                            <span>TYPE</span>
+                            <strong>2D animation engine</strong>
+                        </div>
+
+                        <div>
+                            <span>MODELS</span>
+                            <strong>Flow, custom brushes</strong>
+                        </div>
+
+                        <div>
+                            <span>LICENSE</span>
+                            <strong>Open source</strong>
+                        </div>
+
+                        <div>
+                            <span>RELEASE</span>
+                            <strong>Q1 2027</strong>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="section container">
+
+            <div class="about-bottom reveal">
+
+                <div>
+                    <p class="eyebrow">MORE FROM IVORIST</p>
+
+                    <h2>
+                        See our other
+                        <span class="gradient-text">work.</span>
+                    </h2>
+                </div>
+
+                <a href="projects.html" class="button button-primary">
+                    All projects
+                    <span aria-hidden="true">↗</span>
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+
+            <a href="index.html" class="brand">
+                <img src="logo.png" alt="" class="brand-logo" aria-hidden="true">
+
+                <span class="brand-name">IVORIST</span>
+            </a>
+
+            <p class="footer-copy">
+                © <span id="year">2026</span> Ivorist
+            </p>
+
+            <a href="#top" class="footer-top-link">
+                Back to top ↑
+            </a>
+
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

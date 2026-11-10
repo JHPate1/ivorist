@@ -25,60 +25,52 @@
       ]
     },
     {
-      "id": "form-forge",
+      "id": "frostos",
       "number": "002",
-      "name": "Form Forge",
-      "category": "Software",
-      "summary": "Project pages can now be generated from a plain form, no zip attached.",
-      "url": "projects/form-forge/index.html",
+      "name": "FrostOS",
+      "category": "Systems · Operating System",
+      "summary": "A 64-bit custom kernel OS for lightweight embedded workloads such as corporate computers, with compatibility layers for Linux and Windows apps.",
+      "url": "frostos.html",
       "liveUrl": "",
       "repoUrl": "",
-      "status": "released",
-      "highlights": [],
+      "status": "in-development",
+      "highlights": [
+        "Custom 64-bit kernel",
+        "Linux compat layer",
+        "Windows apps layer"
+      ],
+      "feature": "The kernel bring-up is underway: boot, memory management, and a scheduler tuned for a small number of long-running tasks. The roadmap targets a first release in Q2 2027.",
       "technologies": [
-        "Cloudflare Workers",
-        "Node",
-        "Discord"
+        "C",
+        "x86-64",
+        "Custom kernel",
+        "POSIX layer",
+        "Windows compat"
       ]
     },
     {
-      "id": "probe-test",
+      "id": "strova",
       "number": "003",
-      "name": "Probe Test",
-      "category": "Software",
-      "summary": "Verifying NVIDIA endpoint live",
-      "url": "projects/probe-test/index.html",
+      "name": "Strova",
+      "category": "Software · Animation Engine",
+      "summary": "An open source 2D animation engine with Flow, custom brushes, and rapid exporting. Roughly 20x smoother playback on the same hardware.",
+      "url": "strova.html",
       "liveUrl": "",
       "repoUrl": "",
-      "status": "released",
-      "highlights": [],
-      "technologies": []
-    },
-    {
-      "id": "log-test",
-      "number": "004",
-      "name": "Log Test",
-      "category": "Software",
-      "summary": "Checking tail logs",
-      "url": "projects/log-test/index.html",
-      "liveUrl": "",
-      "repoUrl": "",
-      "status": "released",
-      "highlights": [],
-      "technologies": []
-    },
-    {
-      "id": "safe-concurrency-test-mw9mdpo1",
-      "number": "005",
-      "name": "Safe Concurrency Test mw9mdpo1",
-      "category": "Software",
-      "summary": "Verifying no status stomping",
-      "url": "projects/safe-concurrency-test-mw9mdpo1/index.html",
-      "liveUrl": "",
-      "repoUrl": "",
-      "status": "released",
-      "highlights": [],
-      "technologies": []
+      "status": "in-development",
+      "highlights": [
+        "Flow motion capture",
+        "Custom brushes",
+        "Rapid exporting",
+        "Open source"
+      ],
+      "feature": "Strova turns your gestures into animation: draw a stroke or move an object and the motion becomes the animation. Targeting release in Q1 2027.",
+      "technologies": [
+        "C++",
+        "Real-time playback",
+        "Raster caching",
+        "Open source"
+      ]
     }
   ]
 }

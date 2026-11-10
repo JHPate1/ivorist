@@ -290,7 +290,70 @@ if (contactForm) {
 
 
 /* -------------------------
-   6. PROJECT DIRECTORY
+   6. HERO QUOTES
+   ------------------------- */
+
+// The home page hero shows one line from the studio; picking
+// happens at load time so every refresh can say something
+// different. Without JavaScript the first quatrain stays as
+// the static fallback.
+
+const heroQuotes = [
+    { pre: "We build the", accent: "whole", post: "product" },
+    { pre: "Hardware, software,", accent: "one", post: "team" },
+    { pre: "From schematic", accent: "to shipped.", post: "" },
+    { pre: "Small studio,", accent: "full stack.", post: "" },
+    { pre: "Ideas", accent: "made", post: "physical" },
+    { pre: "Built to run", accent: "everywhere.", post: "" },
+    { pre: "Prototyped", accent: "until", post: "it works" }
+];
+
+function renderHeroQuote() {
+
+    const heroTitle = document.getElementById("heroTitle");
+
+    if (!heroTitle) {
+        return;
+    }
+
+    const quote = heroQuotes[Math.floor(Math.random() * heroQuotes.length)];
+
+    heroTitle.textContent = "";
+
+    if (quote.pre) {
+
+        const preNode = document.createTextNode(quote.pre + " ");
+        heroTitle.appendChild(preNode);
+
+    }
+
+    const accentNode = document.createElement("span");
+    accentNode.className = "gradient-text";
+    accentNode.textContent = quote.accent;
+    heroTitle.appendChild(accentNode);
+
+    if (quote.post) {
+
+        const postNode = document.createTextNode(" " + quote.post);
+        heroTitle.appendChild(postNode);
+
+    }
+
+}
+
+if (document.readyState === "loading") {
+
+    document.addEventListener("DOMContentLoaded", renderHeroQuote);
+
+} else {
+
+    renderHeroQuote();
+
+}
+
+
+/* -------------------------
+   7. PROJECT DIRECTORY
    ------------------------- */
 
 // The projects page and the home page featured project are
