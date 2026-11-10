@@ -8,28 +8,32 @@
    1. VARIABLES & RESET
    ------------------------- */
 
+/* Palette note: the accent variables keep their historical names
+   (--green, --green-dark, --mint) for compatibility with every
+   rule that references them; the values are violet since the
+   2026 re-theme. */
 :root {
-    --bg: #08090a;
-    --bg-secondary: #0d100e;
-    --surface: #101512;
-    --surface-hover: #141c17;
+    --bg: #0a0a11;
+    --bg-secondary: #100e18;
+    --surface: #16141f;
+    --surface-hover: #1d1a2a;
 
-    --text: #edf3ef;
-    --muted: #a0aaa3;
-    --subtle: #6f7b73;
+    --text: #f2f0fa;
+    --muted: #a5a0b8;
+    --subtle: #6f6a85;
 
-    --green: #4ade80;
-    --green-dark: #22c55e;
-    --mint: #c9f9dd;
+    --green: #a78bfa;
+    --green-dark: #8b5cf6;
+    --mint: #e9e2ff;
 
-    --border: rgba(220, 255, 232, 0.10);
-    --border-strong: rgba(220, 255, 232, 0.17);
+    --border: rgba(216, 205, 255, 0.10);
+    --border-strong: rgba(216, 205, 255, 0.18);
 
     --gradient: linear-gradient(
         115deg,
-        #effff6 0%,
-        #7ce7ad 48%,
-        #34d399 100%
+        #f4f0ff 0%,
+        #b9a8ff 48%,
+        #8b5cf6 100%
     );
 
     --font-body: "Roboto Mono", monospace;
@@ -64,8 +68,8 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
 
-    background: #08090a;
-    color: #edf3ef;
+    background: #0a0a11;
+    color: #f2f0fa;
 
     font-family: var(--font-body);
     font-size: 13px;
@@ -133,19 +137,19 @@ svg {
     background:
         radial-gradient(
             ellipse at 78% 8%,
-            rgba(52, 211, 153, 0.075),
+            rgba(139, 92, 246, 0.075),
             transparent 34%
         ),
         radial-gradient(
             ellipse at 8% 58%,
-            rgba(74, 222, 128, 0.035),
+            rgba(167, 139, 250, 0.035),
             transparent 35%
         ),
         linear-gradient(
             145deg,
-            #08090a 0%,
-            #0b100e 48%,
-            #08090a 100%
+            #0a0a11 0%,
+            #100e18 48%,
+            #0a0a11 100%
         );
 }
 
@@ -161,12 +165,12 @@ svg {
     top: -330px;
     right: -190px;
 
-    border: 1px solid rgba(124, 231, 173, 0.12);
+    border: 1px solid rgba(185, 168, 255, 0.12);
     border-radius: 50%;
 
     box-shadow:
-        0 0 0 55px rgba(124, 231, 173, 0.018),
-        0 0 0 110px rgba(124, 231, 173, 0.012);
+        0 0 0 55px rgba(185, 168, 255, 0.018),
+        0 0 0 110px rgba(185, 168, 255, 0.012);
 }
 
 
@@ -185,8 +189,8 @@ svg {
     background: linear-gradient(
         to bottom,
         transparent,
-        rgba(124, 231, 173, 0.13) 25%,
-        rgba(124, 231, 173, 0.04) 70%,
+        rgba(185, 168, 255, 0.13) 25%,
+        rgba(185, 168, 255, 0.04) 70%,
         transparent
     );
 }
@@ -236,9 +240,9 @@ p {
 .gradient-text {
     background: linear-gradient(
         115deg,
-        #effff6 0%,
-        #7ce7ad 48%,
-        #34d399 100%
+        #f4f0ff 0%,
+        #b9a8ff 48%,
+        #8b5cf6 100%
     );
 
     -webkit-background-clip: text;
@@ -452,7 +456,7 @@ p {
     background: #6be996;
     border-color: #6be996;
 
-    box-shadow: 0 5px 20px rgba(74, 222, 128, 0.12);
+    box-shadow: 0 5px 20px rgba(167, 139, 250, 0.12);
 }
 
 
@@ -465,8 +469,8 @@ p {
 
 
 .button-outline:hover:not(:disabled) {
-    border-color: rgba(74, 222, 128, 0.55);
-    background: rgba(74, 222, 128, 0.045);
+    border-color: rgba(167, 139, 250, 0.55);
+    background: rgba(167, 139, 250, 0.045);
 }
 
 
@@ -622,8 +626,8 @@ p {
             rgba(9, 13, 11, 0.48)
         );
 
-    border-top: 1px solid rgba(220, 255, 232, 0.055);
-    border-bottom: 1px solid rgba(220, 255, 232, 0.055);
+    border-top: 1px solid rgba(216, 205, 255, 0.055);
+    border-bottom: 1px solid rgba(216, 205, 255, 0.055);
 }
 
 
@@ -711,13 +715,13 @@ p {
 
     padding: 30px;
 
-    border: 1px solid rgba(124, 231, 173, 0.13);
+    border: 1px solid rgba(185, 168, 255, 0.13);
     border-radius: var(--radius-large);
 
     background:
         radial-gradient(
             ellipse at 100% 0%,
-            rgba(52, 211, 153, 0.09),
+            rgba(139, 92, 246, 0.09),
             transparent 55%
         ),
         linear-gradient(
@@ -809,7 +813,7 @@ p {
 .capability-card:hover {
     transform: translateY(-3px);
 
-    border-color: rgba(74, 222, 128, 0.35);
+    border-color: rgba(167, 139, 250, 0.35);
     background: var(--surface-hover);
 }
 
@@ -850,7 +854,7 @@ p {
 
     padding: 38px;
 
-    border: 1px solid rgba(124, 231, 173, 0.16);
+    border: 1px solid rgba(185, 168, 255, 0.16);
     border-radius: var(--radius-large);
 
     background:
@@ -995,7 +999,7 @@ p {
 
 .project-card:hover {
     transform: translateY(-3px);
-    border-color: rgba(74, 222, 128, 0.35);
+    border-color: rgba(167, 139, 250, 0.35);
 }
 
 
@@ -1022,7 +1026,7 @@ p {
 
     padding: 6px 10px;
 
-    border: 1px solid rgba(74, 222, 128, 0.22);
+    border: 1px solid rgba(167, 139, 250, 0.22);
     border-radius: 4px;
 
     color: var(--mint);
@@ -1384,10 +1388,10 @@ p {
     width: 68px;
     height: 68px;
 
-    border: 1px solid rgba(74, 222, 128, 0.38);
+    border: 1px solid rgba(167, 139, 250, 0.38);
     border-radius: 50%;
 
-    background: rgba(74, 222, 128, 0.035);
+    background: rgba(167, 139, 250, 0.035);
 
     color: var(--mint);
 
@@ -1548,11 +1552,11 @@ p {
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-    border-color: rgba(74, 222, 128, 0.65);
+    border-color: rgba(167, 139, 250, 0.65);
 
     background: #0b100c;
 
-    box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.07);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.07);
 }
 
 
@@ -1609,10 +1613,10 @@ p {
 
 
 .form-success {
-    border: 1px solid rgba(74, 222, 128, 0.25);
+    border: 1px solid rgba(167, 139, 250, 0.25);
 
     color: var(--mint);
-    background: rgba(74, 222, 128, 0.045);
+    background: rgba(167, 139, 250, 0.045);
 }
 
 

@@ -9,7 +9,7 @@
         name="description"
         content="Strova is an open source 2D animation engine by Ivorist, releasing Q1 2027."
     >
-    <meta name="theme-color" content="#0d0a08">
+    <meta name="theme-color" content="#0a0a11">
 
     <link rel="icon" type="image/png" href="logo.png">
 
@@ -23,31 +23,537 @@
 
     <link rel="stylesheet" href="styles.css">
 
-    <!-- Strova theme: warm studio light on charcoal. Same layout, different temper. -->
     <style>
-        :root {
-            --bg: #0d0a08;
-            --bg-secondary: #141009;
-            --surface: #1a1411;
-            --surface-hover: #231a14;
+        /* Strova page styling: a warm editor-studio world.
+            Scoped to strova- prefixed classes. */
 
-            --text: #f7f1ea;
-            --muted: #b3a799;
-            --subtle: #7d6f61;
+        .strova-wrap {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-            --green: #fdba74;
-            --green-dark: #fb923c;
-            --mint: #ffe8d6;
+        .strova-hero {
+            padding: 110px 0 46px;
+        }
 
-            --border: rgba(255, 232, 214, 0.11);
-            --border-strong: rgba(255, 232, 214, 0.19);
+        .strova-eyebrow {
+            font-size: 10px;
+            letter-spacing: 0.22em;
+            color: #9a8aa6;
+            margin-bottom: 18px;
+        }
 
-            --gradient: linear-gradient(
-                115deg,
-                #fff5eb 0%,
-                #ffca8a 46%,
-                #f97b4f 100%
-            );
+        .strova-title {
+            font-family: "Space Mono", monospace;
+            font-size: clamp(44px, 8vw, 92px);
+            line-height: 0.95;
+            color: #faf4fb;
+        }
+
+        .strova-sub {
+            max-width: 640px;
+            margin-top: 20px;
+            font-size: 14px;
+            line-height: 1.9;
+            color: #b3a6be;
+        }
+
+        .strova-sub b {
+            color: #f0abfc;
+            font-weight: 500;
+        }
+
+        .strova-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 24px;
+        }
+
+        .strova-chip {
+            font-size: 9px;
+            letter-spacing: 0.12em;
+            color: #dcbde8;
+            border: 1px solid rgba(232, 121, 249, 0.3);
+            border-radius: 999px;
+            padding: 7px 12px;
+        }
+
+        .strova-chip-hot {
+            color: #17091c;
+            background: #e879f9;
+            border-color: #e879f9;
+        }
+
+        /* the editor mock */
+
+        .strova-app {
+            margin-top: 40px;
+
+            background: #120e15;
+            border: 1px solid rgba(232, 121, 249, 0.2);
+            border-radius: 14px;
+            overflow: hidden;
+
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+        }
+
+        .strova-app-head {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(232, 121, 249, 0.14);
+        }
+
+        .strova-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: rgba(220, 189, 232, 0.25);
+        }
+
+        .strova-app-file {
+            font-size: 11px;
+            color: #d3c2dc;
+            letter-spacing: 0.06em;
+        }
+
+        .strova-app-file b {
+            color: #f0abfc;
+            font-weight: 500;
+        }
+
+        .strova-app-body {
+            display: grid;
+            grid-template-columns: 172px 1fr 190px;
+            min-height: 380px;
+        }
+
+        .strova-panel-head {
+            font-size: 8.5px;
+            letter-spacing: 0.18em;
+            color: #8d7599;
+            padding: 14px 16px 8px;
+        }
+
+        /* brush rail */
+
+        .strova-rail {
+            border-right: 1px solid rgba(232, 121, 249, 0.14);
+            padding-bottom: 14px;
+        }
+
+        .strova-brush {
+            display: grid;
+            gap: 3px;
+
+            padding: 10px 16px;
+            border-left: 2px solid transparent;
+        }
+
+        .strova-brush b {
+            color: #e2d3e9;
+            font-size: 11.5px;
+            font-weight: 500;
+        }
+
+        .strova-brush span {
+            color: #917d9d;
+            font-size: 9.5px;
+        }
+
+        .strova-brush-mine {
+            border-left-color: #e879f9;
+            background: rgba(232, 121, 249, 0.06);
+        }
+
+        .strova-brush-mine em {
+            font-style: normal;
+            font-size: 8px;
+            letter-spacing: 0.14em;
+            color: #e879f9;
+        }
+
+        /* canvas */
+
+        .strova-canvas {
+            position: relative;
+            padding: 26px;
+            display: grid;
+            align-items: stretch;
+        }
+
+        .strova-stage {
+            position: relative;
+
+            border: 1px solid rgba(232, 121, 249, 0.12);
+            border-radius: 10px;
+            background:
+                radial-gradient(circle at 50% 110%, rgba(232, 121, 249, 0.07), transparent 55%),
+                #0c0910;
+            overflow: hidden;
+        }
+
+        .strova-stage svg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .strova-draw {
+            stroke-dasharray: 520;
+            stroke-dashoffset: 520;
+            animation: strovaSketch 3.6s ease-in-out infinite;
+        }
+
+        @keyframes strovaSketch {
+            0%   { stroke-dashoffset: 520; }
+            52%  { stroke-dashoffset: 0; }
+            58%  { stroke-dashoffset: 0; }
+            92%  { stroke-dashoffset: 520; }
+            100% { stroke-dashoffset: 520; }
+        }
+
+        .strova-ghost {
+            fill: none;
+            stroke: rgba(240, 171, 252, 0.22);
+            stroke-width: 2.4;
+            stroke-linecap: round;
+        }
+
+        .strova-tag {
+            position: absolute;
+            left: 14px;
+            bottom: 12px;
+
+            font-size: 8.5px;
+            letter-spacing: 0.16em;
+            color: rgba(240, 171, 252, 0.75);
+            border: 1px solid rgba(232, 121, 249, 0.35);
+            border-radius: 999px;
+            padding: 5px 10px;
+            background: rgba(12, 9, 16, 0.7);
+        }
+
+        /* export drawer */
+
+        .strova-drawer {
+            border-left: 1px solid rgba(232, 121, 249, 0.14);
+            display: grid;
+            align-content: start;
+            gap: 10px;
+            padding: 0 14px 16px;
+        }
+
+        .strova-export {
+            display: block;
+
+            font-size: 10.5px;
+            color: #decbe6;
+            text-decoration: none;
+            text-align: center;
+
+            border: 1px solid rgba(232, 121, 249, 0.24);
+            border-radius: 8px;
+            padding: 10px 8px;
+
+            transition: border-color 0.2s ease;
+        }
+
+        .strova-export:hover {
+            border-color: #e879f9;
+        }
+
+        .strova-export-note {
+            font-size: 9px;
+            color: #8d7599;
+            line-height: 1.7;
+        }
+
+        /* timeline */
+
+        .strova-timeline {
+            grid-column: 2;
+            align-self: end;
+
+            position: relative;
+
+            margin: 0 0 24px;
+            border: 1px solid rgba(232, 121, 249, 0.14);
+            border-radius: 10px;
+            background: #0c0910;
+            padding: 14px 16px 12px;
+        }
+
+        .strova-frames {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 8px;
+        }
+
+        .strova-frame {
+            aspect-ratio: 16 / 9;
+            border: 1px solid rgba(232, 121, 249, 0.16);
+            border-radius: 6px;
+            display: grid;
+            place-items: center;
+            font-size: 9px;
+            color: #917d9d;
+            background: rgba(232, 121, 249, 0.03);
+        }
+
+        .strova-frame-now {
+            border-color: #e879f9;
+            color: #f0abfc;
+            background: rgba(232, 121, 249, 0.12);
+        }
+
+        .strova-playhead {
+            position: absolute;
+            top: 8px;
+            bottom: 8px;
+            left: 43%;
+
+            width: 2px;
+            background: #e879f9;
+            border-radius: 2px;
+        }
+
+        .strova-timeline-foot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+
+            font-size: 9px;
+            letter-spacing: 0.12em;
+            color: #8d7599;
+        }
+
+        .strova-timeline-foot b {
+            color: #f0abfc;
+            font-weight: 500;
+        }
+
+        /* gesture rows */
+
+        .strova-steps {
+            padding: 90px 0 0;
+        }
+
+        .strova-h2 {
+            font-family: "Space Mono", monospace;
+            font-size: clamp(22px, 3.4vw, 32px);
+            line-height: 1.3;
+            color: #faf4fb;
+            margin-bottom: 8px;
+        }
+
+        .strova-h2 em {
+            font-style: normal;
+            color: #e879f9;
+        }
+
+        .strova-lead {
+            max-width: 620px;
+            font-size: 13.5px;
+            line-height: 1.95;
+            color: #b3a6be;
+            margin-bottom: 34px;
+        }
+
+        .strova-step {
+            display: grid;
+            grid-template-columns: 52px 1fr;
+            gap: 18px;
+            align-items: start;
+
+            border-top: 1px solid rgba(232, 121, 249, 0.12);
+            padding: 22px 2px;
+        }
+
+        .strova-step:last-child {
+            border-bottom: 1px solid rgba(232, 121, 249, 0.12);
+        }
+
+        .strova-step i {
+            font-style: normal;
+            font-family: "Space Mono", monospace;
+            color: #e879f9;
+            font-size: 15px;
+        }
+
+        .strova-step b {
+            display: block;
+            color: #eee1f2;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .strova-step p {
+            color: #a292ad;
+            font-size: 12px;
+            line-height: 1.8;
+            max-width: 640px;
+        }
+
+        /* pillars */
+
+        .strova-pillars {
+            padding: 84px 0;
+            border-top: 1px solid rgba(232, 121, 249, 0.1);
+            margin-top: 90px;
+        }
+
+        .strova-pillar {
+            display: grid;
+            grid-template-columns: 190px 1fr;
+            gap: 26px;
+            align-items: start;
+
+            padding: 26px 2px;
+            border-top: 1px solid rgba(232, 121, 249, 0.1);
+        }
+
+        .strova-pillar:last-child {
+            border-bottom: 1px solid rgba(232, 121, 249, 0.1);
+        }
+
+        .strova-pillar h3 {
+            font-family: "Space Mono", monospace;
+            font-size: 16px;
+            color: #f0abfc;
+            font-weight: 500;
+        }
+
+        .strova-pillar h3 span {
+            display: block;
+            font-size: 8.5px;
+            letter-spacing: 0.18em;
+            color: #8d7599;
+            margin-top: 6px;
+        }
+
+        .strova-pillar p {
+            color: #b3a6be;
+            font-size: 13px;
+            line-height: 1.95;
+            max-width: 660px;
+        }
+
+        /* engineering notes */
+
+        .strova-notes {
+            padding: 0 0 84px;
+        }
+
+        .strova-note {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            max-width: 760px;
+        }
+
+        .strova-note div {
+            display: grid;
+            grid-template-columns: 10px 1fr;
+            gap: 14px;
+            align-items: baseline;
+        }
+
+        .strova-note i {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #e879f9;
+            display: inline-block;
+        }
+
+        .strova-note p {
+            color: #b3a6be;
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        /* release strip + cta */
+
+        .strova-strip {
+            border-top: 1px solid rgba(232, 121, 249, 0.1);
+            padding: 40px 0;
+        }
+
+        .strova-strip-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 34px;
+            align-items: baseline;
+        }
+
+        .strova-strip-row span {
+            font-size: 9px;
+            letter-spacing: 0.18em;
+            color: #8d7599;
+        }
+
+        .strova-strip-row b {
+            color: #f0abfc;
+            font-family: "Space Mono", monospace;
+            font-size: 13px;
+        }
+
+        .strova-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            padding: 10px 0 90px;
+        }
+
+        .strova-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+
+            color: #17091c;
+            background: #e879f9;
+            border-radius: 8px;
+            padding: 13px 20px;
+            font-weight: 600;
+        }
+
+        .strova-btn-ghost {
+            color: #f0d5f8;
+            background: transparent;
+            border: 1px solid rgba(232, 121, 249, 0.35);
+            font-weight: 400;
+        }
+
+        @media (max-width: 900px) {
+            .strova-app-body {
+                grid-template-columns: 1fr;
+            }
+
+            .strova-rail, .strova-drawer {
+                border-right: none;
+                border-left: none;
+                border-bottom: 1px solid rgba(232, 121, 249, 0.14);
+            }
+
+            .strova-timeline {
+                grid-column: 1;
+            }
+
+            .strova-pillar {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
         }
     </style>
 </head>
@@ -91,264 +597,288 @@
 
     <main>
 
-        <section class="page-hero container">
+        <div class="strova-wrap">
 
-            <p class="eyebrow reveal">
-                PROJECT 003 / SOFTWARE
-            </p>
+            <!-- hero + editor mock -->
 
-            <div class="project-title-row reveal">
-                <h1 class="page-title">
-                    Strova<span class="title-period">.</span>
-                </h1>
+            <section class="strova-hero">
 
-                <span class="status status-development">
-                    IN DEVELOPMENT
-                </span>
-            </div>
+                <p class="strova-eyebrow reveal">
+                    PROJECT 003 / SOFTWARE
+                </p>
 
-            <p class="page-description reveal">
-                An open source 2D animation engine that keeps up
-                with you. Draw a stroke and it moves. Move an object
-                and it comes alive. Targeting a release in Q1 2027.
-            </p>
+                <h1 class="strova-title reveal">Strova</h1>
 
-        </section>
+                <p class="strova-sub reveal">
+                    An open source 2D animation engine. Draw a stroke,
+                    move an object, and <b>that motion is your
+                    animation</b>. No keyframe paperwork before the
+                    idea breathes. Releasing Q1 2027.
+                </p>
 
-
-        <section class="section container">
-
-            <div class="project-overview">
-
-                <div class="section-heading reveal">
-                    <p class="eyebrow">THE IDEA</p>
-
-                    <h2>
-                        Animation that moves
-                        <span class="gradient-text">when you do.</span>
-                    </h2>
+                <div class="strova-chips reveal">
+                    <span class="strova-chip strova-chip-hot">OPEN SOURCE</span>
+                    <span class="strova-chip">FLOW INSIDE</span>
+                    <span class="strova-chip">20x SMOOTHER TARGET</span>
+                    <span class="strova-chip">RELEASE Q1 2027</span>
                 </div>
 
-                <div class="prose reveal">
+                <!-- the editor -->
 
-                    <p>
-                        Traditional animation tools make you split a
-                        thought into five dialogs: a keyframe here, a
-                        tween there, an easing curve somewhere else.
-                        The result is software that technically works,
-                        but feels like filling in paperwork about the
-                        motion rather than making it.
-                    </p>
+                <div class="strova-app reveal" role="img" aria-label="Mock of the Strova animation editor">
 
-                    <p>
-                        Strova starts from the gesture. You draw a
-                        stroke, or move an object, and the motion you
-                        performed becomes the animation. Timing is
-                        captured from how you did it, not from a panel
-                        you configure afterward. The system is built
-                        around that one idea, and everything else
-                        serves it.
-                    </p>
+                    <div class="strova-app-head">
+                        <span class="strova-dot" aria-hidden="true"></span>
+                        <span class="strova-dot" aria-hidden="true"></span>
+                        <span class="strova-dot" aria-hidden="true"></span>
+                        <span class="strova-app-file"><b>heron-warmup.strova</b> · Flow scene</span>
+                    </div>
 
-                    <p>
-                        Strova is open source. Real artists deserve
-                        tools whose bones they can read, and a
-                        community should never lose its work to a
-                        company that stops caring. The source stays
-                        open, and the project releases in Q1 of 2027.
-                    </p>
+                    <div class="strova-app-body">
+
+                        <!-- brush rail -->
+
+                        <div class="strova-rail">
+                            <p class="strova-panel-head">BRUSHES</p>
+
+                            <div class="strova-brush">
+                                <b>Herd Pencil</b>
+                                <span>grain 3 · stiff tip</span>
+                            </div>
+
+                            <div class="strova-brush">
+                                <b>Ink Sheen</b>
+                                <span>pressure trail</span>
+                            </div>
+
+                            <div class="strova-brush">
+                                <b>Wash Sponge</b>
+                                <span>soft edges</span>
+                            </div>
+
+                            <div class="strova-brush strova-brush-mine">
+                                <b>my-gull-stroke</b>
+                                <em>YOUR BRUSH</em>
+                                <span>taper 0.4 · drag glide</span>
+                            </div>
+                        </div>
+
+                        <!-- canvas -->
+
+                        <div class="strova-canvas">
+                            <div class="strova-stage">
+                                <svg viewBox="0 0 600 340" preserveAspectRatio="none" aria-hidden="true">
+                                    <path class="strova-ghost" d="M110 240 Q 210 170 300 210 T 480 150" />
+                                    <path class="strova-ghost" opacity="0.5" d="M120 255 Q 220 190 310 228 T 486 172" />
+                                    <path class="strova-ghost" opacity="0.28" d="M132 268 Q 232 208 322 244 T 490 192" />
+                                    <path class="strova-draw" d="M96 226 Q 200 150 292 194 T 472 132" />
+                                </svg>
+
+                                <span class="strova-tag">FLOW · MOTION AS DRAWN</span>
+                            </div>
+
+                            <!-- timeline -->
+
+                            <div class="strova-timeline">
+
+                                <div class="strova-frames">
+                                    <div class="strova-frame">1</div>
+                                    <div class="strova-frame">2</div>
+                                    <div class="strova-frame strova-frame-now">3</div>
+                                    <div class="strova-frame">4</div>
+                                    <div class="strova-frame">5</div>
+                                    <div class="strova-frame">6</div>
+                                </div>
+
+                                <span class="strova-playhead" aria-hidden="true"></span>
+
+                                <div class="strova-timeline-foot">
+                                    <span>20 fps · 6 frames · loop</span>
+                                    <b>FLOW ON</b>
+                                    <span>onion skin ±1</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- export drawer -->
+
+                        <div class="strova-drawer">
+                            <p class="strova-panel-head">RAPID EXPORT</p>
+
+                            <a class="strova-export" href="#" onclick="return false">MP4 · 12 s render</a>
+                            <a class="strova-export" href="#" onclick="return false">GIF · 4 s loop</a>
+                            <a class="strova-export" href="#" onclick="return false">PNG frames</a>
+
+                            <p class="strova-export-note">Last export landed while the tea was still hot. The pipeline is designed so the button is never the slow part.</p>
+                        </div>
+
+                    </div>
 
                 </div>
 
-            </div>
-
-        </section>
+            </section>
 
 
-        <section class="section section-alt">
+            <!-- gestures -->
 
-            <div class="container">
+            <section class="strova-steps">
 
-                <div class="section-heading reveal">
-                    <p class="eyebrow">THE INSTRUMENTS</p>
+                <h2 class="strova-h2 reveal">
+                    How Flow works,
+                    <em>as a hand would.</em>
+                </h2>
 
-                    <h2>
-                        Built around
-                        <span class="gradient-text">motion.</span>
-                    </h2>
+                <p class="strova-lead reveal">
+                    Traditional tools break a thought into dialogs:
+                    a keyframe here, a tween there, an easing panel
+                    somewhere else. Flow keeps the thought whole.
+                </p>
 
-                    <p class="section-description">
-                        Three pillars carry the engine design.
-                    </p>
+                <div class="reveal">
+
+                    <div class="strova-step">
+                        <i>01</i>
+                        <div>
+                            <b>Stroke the motion</b>
+                            <p>Draw the path your subject should travel. The curve is not a guide for later math, it is recorded as the motion itself.</p>
+                        </div>
+                    </div>
+
+                    <div class="strova-step">
+                        <i>02</i>
+                        <div>
+                            <b>Your hand sets the timing</b>
+                            <p>How fast you draw the stroke becomes the pacing. Slow down for weight, speed up for snap, no funnel of dialogs in between.</p>
+                        </div>
+                    </div>
+
+                    <div class="strova-step">
+                        <i>03</i>
+                        <div>
+                            <b>Objects ride the stroke</b>
+                            <p>Existing objects can be grabbed and moved, and Strova turns that move into animation the same way, so choreography works with things as well as sketches.</p>
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="development-grid">
+            </section>
 
-                    <article class="development-card reveal">
-                        <span class="development-index">01</span>
 
-                        <h3>Flow</h3>
+            <!-- pillars -->
 
+            <section class="strova-pillars">
+
+                <h2 class="strova-h2 reveal">
+                    Three commitments,
+                    <em>nothing rented.</em>
+                </h2>
+
+                <div class="reveal">
+
+                    <div class="strova-pillar">
+                        <h3>Flow<span>MOTION AS DRAWN</span></h3>
                         <p>
-                            Make an animation by simply stroking or
-                            moving objects. The path you draw is the
-                            motion, the pace of your hand is the
-                            timing. Choreography at the speed of
-                            sketching.
+                            Animation by gesture, for strokes and objects
+                            alike. The timing of your hand is the law of
+                            the scene; editing tools exist to refine that
+                            law, never to replace it.
                         </p>
-                    </article>
+                    </div>
 
-                    <article class="development-card reveal">
-                        <span class="development-index">02</span>
-
-                        <h3>Custom brushes</h3>
-
+                    <div class="strova-pillar">
+                        <h3>Custom brushes<span>BUILT FOR YOUR NEEDS</span></h3>
                         <p>
-                            Brushes are not presets you rent. Build
-                            your own for your own needs, tune their
-                            feel, texture, and behavior, and keep
-                            them as yours, shareable and portable.
+                            Brushes are yours to make: shape, texture,
+                            feel, behavior. Tune one for your project,
+                            keep it portable, share it if you like. A
+                            community's brush kit is an inheritance,
+                            not a subscription.
                         </p>
-                    </article>
+                    </div>
 
-                    <article class="development-card reveal">
-                        <span class="development-index">03</span>
-
-                        <h3>Rapid exporting</h3>
-
+                    <div class="strova-pillar">
+                        <h3>Rapid exporting<span>SHORT LOOP TO FILE</span></h3>
                         <p>
-                            Getting your work out should never be
-                            slower than making it. Rapid exporting
-                            pushes finished frames to video in
-                            seconds, keeping the loop from idea to
-                            shareable file short.
+                            Getting work out must never be slower than
+                            making it. Exports run against the same
+                            render the preview uses, so the file you
+                            share looks exactly like the motion you made.
                         </p>
-                    </article>
+                    </div>
 
                 </div>
 
-            </div>
-
-        </section>
+            </section>
 
 
-        <section class="section container">
+            <!-- engineering notes -->
 
-            <div class="project-overview">
+            <section class="strova-notes">
 
-                <div class="section-heading reveal">
-                    <p class="eyebrow">WHAT WE MEAN BY SMOOTH</p>
+                <h2 class="strova-h2 reveal">
+                    What "20x smoother"
+                    <em>is made of.</em>
+                </h2>
 
-                    <h2>
-                        20x smoother, on the same
-                        <span class="gradient-text">hardware.</span>
-                    </h2>
-                </div>
+                <p class="strova-lead reveal">
+                    The playback target is roughly twenty times less
+                    latency and judder than today's tools on the same
+                    hardware. It lives in engine architecture:
+                </p>
 
-                <div class="prose reveal">
-
-                    <p>
-                        Strova is engineered to be dramatically
-                        smoother than the tools animators work in
-                        today, and the number is taken seriously:
-                        a playback target of roughly twenty times
-                        less latency and judder on the same machine,
-                        achieved in the engine rather than with fancy
-                        export settings.
-                    </p>
-
-                    <p>
-                        That comes from architecture: a playback path
-                        that never touches disk mid-render, cached
-                        rasterization shared between preview and
-                        export, and a timeline model that treats a
-                        scene as one living graph instead of frames
-                        to shuffle. The smoothness is a property of
-                        the engine, not a mode you switch on.
-                    </p>
-
-                    <p>
-                        Strova is in active development and has not
-                        shipped yet. The current estimate for a first
-                        public release is Q1 of 2027. Like any good
-                        story, the date may shift, but the promise,
-                        open source, does not.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <section class="section section-alt">
-
-            <div class="container">
-
-                <div class="tech-panel reveal">
+                <div class="strova-note reveal">
 
                     <div>
-                        <p class="eyebrow">PROJECT DETAILS</p>
-
-                        <h2>Strova</h2>
-
-                        <p>
-                            An Ivorist software project, 2D animation
-                            engine, open source.
-                        </p>
+                        <i aria-hidden="true"></i>
+                        <p>The playback path never touches the disk mid-render. Frames are composed in memory and stay there until the shot ends.</p>
                     </div>
 
-                    <div class="project-facts">
-                        <div>
-                            <span>TYPE</span>
-                            <strong>2D animation engine</strong>
-                        </div>
+                    <div>
+                        <i aria-hidden="true"></i>
+                        <p>One rasterization is shared by preview and export, so the smoothness you see is the smoothness you ship.</p>
+                    </div>
 
-                        <div>
-                            <span>MODELS</span>
-                            <strong>Flow, custom brushes</strong>
-                        </div>
-
-                        <div>
-                            <span>LICENSE</span>
-                            <strong>Open source</strong>
-                        </div>
-
-                        <div>
-                            <span>RELEASE</span>
-                            <strong>Q1 2027</strong>
-                        </div>
+                    <div>
+                        <i aria-hidden="true"></i>
+                        <p>The scene is one living graph, not a stack of frames being shuffled, so scrubbing and playback read the same data.</p>
                     </div>
 
                 </div>
 
-            </div>
-
-        </section>
+            </section>
 
 
-        <section class="section container">
+            <!-- release strip -->
 
-            <div class="about-bottom reveal">
+            <section class="strova-strip">
 
-                <div>
-                    <p class="eyebrow">MORE FROM IVORIST</p>
-
-                    <h2>
-                        See our other
-                        <span class="gradient-text">work.</span>
-                    </h2>
+                <div class="strova-strip-row reveal">
+                    <span>STATUS</span><b>In development</b>
+                    <span>LICENSE</span><b>Open source</b>
+                    <span>RELEASE</span><b>Q1 2027</b>
+                    <span>ENGINE</span><b>Live graph, shared raster</b>
                 </div>
 
-                <a href="projects.html" class="button button-primary">
-                    All projects
+            </section>
+
+
+            <section class="strova-cta">
+
+                <a href="projects.html" class="strova-btn">
+                    All Ivorist projects
                     <span aria-hidden="true">↗</span>
                 </a>
 
-            </div>
+                <a href="#top" class="strova-btn strova-btn-ghost">
+                    Back to the studio
+                    <span aria-hidden="true">↑</span>
+                </a>
 
-        </section>
+            </section>
+
+        </div>
 
     </main>
 
