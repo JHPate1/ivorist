@@ -5,17 +5,17 @@
       "number": "001",
       "name": "Archivist",
       "category": "Software · Local AI",
-      "summary": "A local-first document research tool for semantic search and exploring personal document collections.",
+      "summary": "A local-first document research tool that helps people find information in their own files and draw conclusions grounded in them.",
       "url": "archivist.html",
       "liveUrl": "",
       "repoUrl": "",
       "status": "in-development",
       "highlights": [
         "Document search",
-        "Local processing",
-        "Semantic retrieval"
+        "Semantic retrieval",
+        "Local-first"
       ],
-      "feature": "The current build focuses on document indexing and semantic search. The longer-term goal is to make it easier to find information across personal document collections without relying on a cloud service.",
+      "feature": "The current build focuses on document processing and semantic retrieval: extracting text, indexing it locally, and finding passages related to your question. Retrieved passages feed a locally run model, so answers come from your documents and stay traceable to their sources.",
       "technologies": [
         "Python",
         "all-MiniLM-L6-v2",
@@ -39,7 +39,7 @@
         "Linux compat layer",
         "Windows apps layer"
       ],
-      "feature": "The kernel bring-up is underway: boot, memory management, and a scheduler tuned for a small number of long-running tasks. The roadmap targets a first release in Q2 2027.",
+      "feature": "The kernel bring-up is underway: boot, memory management, and a scheduler tuned for a small number of long-running tasks. The roadmap targets a first release in Q1 2028.",
       "technologies": [
         "C",
         "x86-64",
@@ -64,7 +64,7 @@
         "Rapid exporting",
         "Open source"
       ],
-      "feature": "Strova turns your gestures into animation: draw a stroke or move an object and the motion becomes the animation. Targeting release in Q1 2027.",
+      "feature": "Strova turns your gestures into animation: draw a stroke or move an object and the motion becomes the animation. Targeting release in Q1 2028.",
       "technologies": [
         "C++",
         "Real-time playback",

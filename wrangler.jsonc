@@ -10,6 +10,13 @@
       "/api/*"
     ]
   },
+  "d1_databases": [
+    {
+      "binding": "NOTIFY_DB",
+      "database_name": "ivorist-notify",
+      "database_id": "74503059-aaa2-482c-8516-44205dd69ada"
+    }
+  ],
   "send_email": [
     { "name": "SEND_EMAIL", "allowed_destination_addresses": ["team@ivorists.com"] }
   ],

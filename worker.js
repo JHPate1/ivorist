@@ -35,6 +35,13 @@ export default {
       return handleContact(request, env, url.hostname);
     }
 
+    if (url.pathname === "/api/notify") {
+      if (request.method !== "POST") {
+        return json({ ok: false, error: "Method not allowed" }, 405);
+      }
+      return handleNotify(request, env);
+    }
+
     return env.ASSETS.fetch(request);
   },
 };
@@ -93,5 +100,46 @@ async function handleContact(request, env, host) {
     const code = err && err.code ? err.code : "";
     console.error("email send failed:", code, err && err.message);
     return json({ ok: false, error: "Not sent" }, 500);
+  }
+}
+
+const NOTIFY_PROJECTS = new Set(["archivist", "frostos", "strova"]);
+
+async function handleNotify(request, env) {
+  let body;
+  try {
+    body = await request.json();
+  } catch {
+    return json({ ok: false, error: "Invalid request" }, 400);
+  }
+
+  // Same honeypot as /api/message: pretend it worked.
+  if (safeHeader(body.website)) {
+    return json({ ok: true });
+  }
+
+  const email = safeHeader(body.email).slice(0, LIMITS.email);
+  const project = safeHeader(body.project).toLowerCase();
+
+  if (!email || !project) {
+    return json({ ok: false, error: "Missing fields" }, 400);
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return json({ ok: false, error: "Invalid email" }, 400);
+  }
+  if (!NOTIFY_PROJECTS.has(project)) {
+    return json({ ok: false, error: "Unknown project" }, 400);
+  }
+
+  try {
+    await env.NOTIFY_DB.prepare(
+      "INSERT INTO notify_signups (email, project) VALUES (?1, ?2) ON CONFLICT (email, project) DO NOTHING"
+    )
+      .bind(email, project)
+      .run();
+    return json({ ok: true });
+  } catch (err) {
+    console.error("notify insert failed:", err && err.message);
+    return json({ ok: false, error: "Not saved" }, 500);
   }
 }

@@ -593,6 +593,127 @@
             }
         }
 
+        /* --------------------------------
+           RELEASE NOTIFY
+        -------------------------------- */
+
+        .archivist-notify {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .archivist-notify .eyebrow {
+            color: var(--arc-mint);
+            font-size: 0.72rem;
+            letter-spacing: 0.15em;
+            margin-bottom: 17px;
+        }
+
+        .archivist-notify h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.7rem);
+            line-height: 1.25;
+            letter-spacing: -0.045em;
+            margin: 0 0 16px;
+        }
+
+        .archivist-notify-copy > p {
+            max-width: 480px;
+        }
+
+        .archivist-notify-form {
+            display: flex;
+            gap: 12px;
+            max-width: 480px;
+            margin-top: 28px;
+        }
+
+        .archivist-notify-input {
+            flex: 1;
+            min-width: 0;
+            background: var(--arc-panel);
+            border: 1px solid var(--arc-border);
+            border-radius: 3px;
+            color: #edf8f2;
+            font: inherit;
+            padding: 13px 16px;
+        }
+
+        .archivist-notify-input::placeholder {
+            color: rgba(154, 175, 165, 0.6);
+        }
+
+        .archivist-notify-input:focus {
+            outline: none;
+            border-color: rgba(119, 232, 194, 0.55);
+        }
+
+        .archivist-notify-feedback {
+            margin-top: 14px;
+            font-size: 0.82rem;
+        }
+
+        .archivist-notify-ok {
+            color: var(--arc-mint);
+        }
+
+        .archivist-notify-err {
+            color: #ff9d8f;
+        }
+
+        .archivist-countdown {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+        }
+
+        .archivist-count-cell {
+            border-top: 1px solid var(--arc-border);
+            padding-top: 13px;
+        }
+
+        .archivist-count-cell span {
+            display: block;
+            color: var(--arc-green);
+            font-size: 0.65rem;
+            letter-spacing: 0.12em;
+            margin-bottom: 9px;
+        }
+
+        .archivist-count-cell strong {
+            color: #e6f8ed;
+            font-family: "Space Mono", monospace;
+            font-size: clamp(1.5rem, 3vw, 2.3rem);
+            font-weight: 600;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .archivist-count-note {
+            margin-top: 20px;
+            color: var(--arc-muted);
+            font-size: 0.7rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 900px) {
+            .archivist-notify {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .archivist-notify-form {
+                flex-direction: column;
+            }
+
+            .archivist-countdown {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
         @media (prefers-reduced-motion: reduce) {
             .archivist-workflow-card {
                 transition: none;
@@ -1133,6 +1254,120 @@
         </section>
 
 
+        <!-- RELEASE NOTIFY -->
+
+        <section class="archivist-section archivist-section-alt">
+
+            <div class="container">
+
+                <div class="archivist-notify reveal">
+
+                    <div class="archivist-notify-copy">
+
+                        <p class="eyebrow">RELEASE NOTICE</p>
+
+                        <h2>
+                            One email when the first
+                            <span class="gradient-text">build lands.</span>
+                        </h2>
+
+                        <p>
+                            Leave your address and we'll tell you when
+                            Archivist is ready. That's the only email
+                            this list sends.
+                        </p>
+
+                        <form class="archivist-notify-form" id="archivistNotify" novalidate>
+
+                            <input
+                                type="email"
+                                name="email"
+                                class="archivist-notify-input"
+                                placeholder="you@example.com"
+                                autocomplete="email"
+                                required
+                            >
+
+                            <!-- Honeypot field for basic spam protection. -->
+                            <input
+                                type="text"
+                                name="website"
+                                class="hp"
+                                tabindex="-1"
+                                autocomplete="off"
+                                aria-hidden="true"
+                            >
+
+                            <button
+                                type="submit"
+                                class="button button-primary"
+                                id="archivistNotifyBtn"
+                            >
+                                <span class="button-label">Notify me</span>
+                                <span aria-hidden="true">↗</span>
+                            </button>
+
+                        </form>
+
+                        <p
+                            class="archivist-notify-feedback archivist-notify-ok"
+                            id="archivistNotifyOk"
+                            role="status"
+                            hidden
+                        >
+                            You're on the list. We'll email you at launch.
+                        </p>
+
+                        <p
+                            class="archivist-notify-feedback archivist-notify-err"
+                            id="archivistNotifyErr"
+                            role="alert"
+                            hidden
+                        >
+                            That didn't go through. Try again, or email team@ivorists.com.
+                        </p>
+
+                    </div>
+
+                    <div class="archivist-notify-timer">
+
+                        <div class="archivist-countdown">
+
+                            <div class="archivist-count-cell">
+                                <span>DAYS</span>
+                                <strong id="archDays">00</strong>
+                            </div>
+
+                            <div class="archivist-count-cell">
+                                <span>HOURS</span>
+                                <strong id="archHours">00</strong>
+                            </div>
+
+                            <div class="archivist-count-cell">
+                                <span>MINUTES</span>
+                                <strong id="archMins">00</strong>
+                            </div>
+
+                            <div class="archivist-count-cell">
+                                <span>SECONDS</span>
+                                <strong id="archSecs">00</strong>
+                            </div>
+
+                        </div>
+
+                        <p class="archivist-count-note">
+                            Until the first release · Jan 1, 2028 · Estimated
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
         <!-- BOTTOM LINK -->
 
         <section class="archivist-section container">
@@ -1181,6 +1416,130 @@
     </footer>
 
     <script src="script.js"></script>
+
+    <script>
+
+        /* Countdown to the Jan 1 2028 release. */
+
+        (function () {
+
+            const days = document.getElementById("archDays");
+            const hours = document.getElementById("archHours");
+            const mins = document.getElementById("archMins");
+            const secs = document.getElementById("archSecs");
+
+            if (!days || !hours || !mins || !secs) {
+                return;
+            }
+
+            const target = new Date(2028, 0, 1, 0, 0, 0);
+            const pad = (n) => String(n).padStart(2, "0");
+
+            function set(el, value) {
+                const text = pad(value);
+                if (el.textContent !== text) {
+                    el.textContent = text;
+                }
+            }
+
+            function tick() {
+
+                const remaining = target.getTime() - Date.now();
+
+                if (remaining <= 0) {
+                    set(days, 0);
+                    set(hours, 0);
+                    set(mins, 0);
+                    set(secs, 0);
+                    clearInterval(timer);
+                    return;
+                }
+
+                const total = Math.floor(remaining / 1000);
+
+                set(days, Math.floor(total / 86400));
+                set(hours, Math.floor((total % 86400) / 3600));
+                set(mins, Math.floor((total % 3600) / 60));
+                set(secs, total % 60);
+            }
+
+            const timer = setInterval(tick, 1000);
+            tick();
+
+        })();
+
+
+        /* Release notice: saves to the launch list database. */
+
+        (function () {
+
+            const form = document.getElementById("archivistNotify");
+
+            if (!form) {
+                return;
+            }
+
+            const button = document.getElementById("archivistNotifyBtn");
+            const okMessage = document.getElementById("archivistNotifyOk");
+            const errMessage = document.getElementById("archivistNotifyErr");
+            const label = button.querySelector(".button-label");
+
+            form.addEventListener("submit", async (event) => {
+
+                event.preventDefault();
+
+                if (!form.checkValidity()) {
+                    form.reportValidity();
+                    return;
+                }
+
+                if (button.disabled) {
+                    return;
+                }
+
+                okMessage.hidden = true;
+                errMessage.hidden = true;
+
+                button.disabled = true;
+                button.setAttribute("aria-busy", "true");
+                label.textContent = "Sending…";
+
+                try {
+
+                    const response = await fetch("/api/notify", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            email: form.elements.email.value.trim(),
+                            project: "archivist",
+                            website: form.elements.website.value
+                        })
+                    });
+
+                    if (!response.ok) {
+                        throw new Error("Request failed");
+                    }
+
+                    form.reset();
+                    okMessage.hidden = false;
+
+                } catch (error) {
+
+                    errMessage.hidden = false;
+
+                } finally {
+
+                    button.disabled = false;
+                    button.removeAttribute("aria-busy");
+                    label.textContent = "Notify me";
+
+                }
+
+            });
+
+        })();
+
+    </script>
 
 </body>
 </html>

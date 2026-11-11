@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>FrostOS | Cold start coming 2027</title>
+    <title>FrostOS | Cold start coming 2028</title>
     <meta
         name="description"
-        content="FrostOS: a fast, easily provisioned 64-bit custom kernel operating system for gamers, everyday users, and fleets. Cold start Q2 2027. Join the launch list."
+        content="FrostOS: a fast, easily provisioned 64-bit custom kernel operating system for gamers, everyday users, and fleets. Cold start Q1 2028. Join the launch list."
     >
     <meta name="theme-color" content="#050e1a">
 
-    <meta property="og:title" content="FrostOS | Cold start coming 2027">
-    <meta property="og:description" content="A fast, easily provisioned 64-bit custom kernel OS for gamers, everyday users, and fleets. Cold start Q2 2027.">
+    <meta property="og:title" content="FrostOS | Cold start coming 2028">
+    <meta property="og:description" content="A fast, easily provisioned 64-bit custom kernel OS for gamers, everyday users, and fleets. Cold start Q1 2028.">
     <meta property="og:type" content="website">
 
     <link
@@ -681,7 +681,7 @@
                 <div>
 
                     <p class="eyebrow rise r1">
-                        OPERATING SYSTEM · COLD START 2027
+                        OPERATING SYSTEM · COLD START 2028
                     </p>
 
                     <h1 class="title rise r2">
@@ -704,7 +704,7 @@
                     </div>
 
                     <p class="count-note rise r4">
-                        UNTIL THE LAUNCH WINDOW OPENS · <b>Q2 2027</b> · ESTIMATED
+                        UNTIL THE LAUNCH WINDOW OPENS · <b>Q1 2028</b> · ESTIMATED
                     </p>
 
                     <form class="notify rise r5" id="frostNotify">
@@ -836,7 +836,7 @@
                     <div class="node rise r3">
                         <h4>Cold start</h4>
                         <p>First public image, easy provisioning, setup docs.</p>
-                        <span class="node-tag">Q2 2027</span>
+                        <span class="node-tag">Q1 2028</span>
                     </div>
 
                 </div>
@@ -895,7 +895,7 @@
         })();
 
 
-        /* Countdown to the Q2 2027 launch window. */
+        /* Countdown to the Jan 1 2028 launch window. */
 
         (function () {
 
@@ -908,7 +908,7 @@
                 return;
             }
 
-            const target = new Date(2027, 3, 1, 0, 0, 0);
+            const target = new Date(2028, 0, 1, 0, 0, 0);
             const pad = (n) => String(n).padStart(2, "0");
 
             function set(el, value) {
@@ -982,13 +982,12 @@
 
                 try {
 
-                    const response = await fetch("/api/message", {
+                    const response = await fetch("/api/notify", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({
-                            name: "FrostOS launch list",
                             email: form.elements.email.value.trim(),
-                            message: "Please notify me when FrostOS launches. Signed up from the FrostOS coming soon page (target Q2 2027).",
+                            project: "frostos",
                             website: form.elements.website.value
                         })
                     });
