@@ -1678,6 +1678,25 @@ p {
 }
 
 
+.footer-legal {
+    display: flex;
+    gap: 16px;
+}
+
+
+.footer-legal a {
+    color: var(--subtle);
+    font-size: 10px;
+
+    transition: color 0.2s ease;
+}
+
+
+.footer-legal a:hover {
+    color: var(--mint);
+}
+
+
 /* -------------------------
    18. SCROLL ANIMATIONS
    ------------------------- */
