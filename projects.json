@@ -39,7 +39,7 @@
         "Linux compat layer",
         "Windows apps layer"
       ],
-      "feature": "The kernel bring-up is underway: boot, memory management, and a scheduler tuned for a small number of long-running tasks. The roadmap targets a first release in Q1 2028.",
+      "feature": "The kernel bring-up is underway: boot, memory management, and a scheduler tuned for a small number of long-running tasks. The roadmap targets a first release in Q4 2026.",
       "technologies": [
         "C",
         "x86-64",
@@ -64,7 +64,7 @@
         "Rapid exporting",
         "Open source"
       ],
-      "feature": "Strova turns your gestures into animation: draw a stroke or move an object and the motion becomes the animation. Targeting release in Q1 2028.",
+      "feature": "Strova turns your gestures into animation: draw a stroke or move an object and the motion becomes the animation. Targeting release in Q1 2027.",
       "technologies": [
         "C++",
         "Real-time playback",
