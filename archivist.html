@@ -808,6 +808,120 @@
         </section>
 
 
+        <!-- RELEASE NOTIFY -->
+
+        <section class="archivist-section archivist-section-alt">
+
+            <div class="container">
+
+                <div class="archivist-notify reveal">
+
+                    <div class="archivist-notify-copy">
+
+                        <p class="eyebrow">RELEASE NOTICE</p>
+
+                        <h2>
+                            One email when the first
+                            <span class="gradient-text">build lands.</span>
+                        </h2>
+
+                        <p>
+                            Leave your address and we'll tell you when
+                            Archivist is ready. That's the only email
+                            this list sends.
+                        </p>
+
+                        <form class="archivist-notify-form" id="archivistNotify" novalidate>
+
+                            <input
+                                type="email"
+                                name="email"
+                                class="archivist-notify-input"
+                                placeholder="you@example.com"
+                                autocomplete="email"
+                                required
+                            >
+
+                            <!-- Honeypot field for basic spam protection. -->
+                            <input
+                                type="text"
+                                name="website"
+                                class="hp"
+                                tabindex="-1"
+                                autocomplete="off"
+                                aria-hidden="true"
+                            >
+
+                            <button
+                                type="submit"
+                                class="button button-primary"
+                                id="archivistNotifyBtn"
+                            >
+                                <span class="button-label">Notify me</span>
+                                <span aria-hidden="true">↗</span>
+                            </button>
+
+                        </form>
+
+                        <p
+                            class="archivist-notify-feedback archivist-notify-ok"
+                            id="archivistNotifyOk"
+                            role="status"
+                            hidden
+                        >
+                            You're on the list. We'll email you at launch.
+                        </p>
+
+                        <p
+                            class="archivist-notify-feedback archivist-notify-err"
+                            id="archivistNotifyErr"
+                            role="alert"
+                            hidden
+                        >
+                            That didn't go through. Try again, or email team@ivorists.com.
+                        </p>
+
+                    </div>
+
+                    <div class="archivist-notify-timer">
+
+                        <div class="archivist-countdown">
+
+                            <div class="archivist-count-cell">
+                                <span>DAYS</span>
+                                <strong id="archDays">00</strong>
+                            </div>
+
+                            <div class="archivist-count-cell">
+                                <span>HOURS</span>
+                                <strong id="archHours">00</strong>
+                            </div>
+
+                            <div class="archivist-count-cell">
+                                <span>MINUTES</span>
+                                <strong id="archMins">00</strong>
+                            </div>
+
+                            <div class="archivist-count-cell">
+                                <span>SECONDS</span>
+                                <strong id="archSecs">00</strong>
+                            </div>
+
+                        </div>
+
+                        <p class="archivist-count-note">
+                            Until the first release · Jan 1, 2028 · Estimated
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
         <!-- THE IDEA -->
 
         <section class="archivist-section container">
@@ -1245,120 +1359,6 @@
                     <div class="archivist-fact">
                         <span>STATUS</span>
                         <strong>In development</strong>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- RELEASE NOTIFY -->
-
-        <section class="archivist-section archivist-section-alt">
-
-            <div class="container">
-
-                <div class="archivist-notify reveal">
-
-                    <div class="archivist-notify-copy">
-
-                        <p class="eyebrow">RELEASE NOTICE</p>
-
-                        <h2>
-                            One email when the first
-                            <span class="gradient-text">build lands.</span>
-                        </h2>
-
-                        <p>
-                            Leave your address and we'll tell you when
-                            Archivist is ready. That's the only email
-                            this list sends.
-                        </p>
-
-                        <form class="archivist-notify-form" id="archivistNotify" novalidate>
-
-                            <input
-                                type="email"
-                                name="email"
-                                class="archivist-notify-input"
-                                placeholder="you@example.com"
-                                autocomplete="email"
-                                required
-                            >
-
-                            <!-- Honeypot field for basic spam protection. -->
-                            <input
-                                type="text"
-                                name="website"
-                                class="hp"
-                                tabindex="-1"
-                                autocomplete="off"
-                                aria-hidden="true"
-                            >
-
-                            <button
-                                type="submit"
-                                class="button button-primary"
-                                id="archivistNotifyBtn"
-                            >
-                                <span class="button-label">Notify me</span>
-                                <span aria-hidden="true">↗</span>
-                            </button>
-
-                        </form>
-
-                        <p
-                            class="archivist-notify-feedback archivist-notify-ok"
-                            id="archivistNotifyOk"
-                            role="status"
-                            hidden
-                        >
-                            You're on the list. We'll email you at launch.
-                        </p>
-
-                        <p
-                            class="archivist-notify-feedback archivist-notify-err"
-                            id="archivistNotifyErr"
-                            role="alert"
-                            hidden
-                        >
-                            That didn't go through. Try again, or email team@ivorists.com.
-                        </p>
-
-                    </div>
-
-                    <div class="archivist-notify-timer">
-
-                        <div class="archivist-countdown">
-
-                            <div class="archivist-count-cell">
-                                <span>DAYS</span>
-                                <strong id="archDays">00</strong>
-                            </div>
-
-                            <div class="archivist-count-cell">
-                                <span>HOURS</span>
-                                <strong id="archHours">00</strong>
-                            </div>
-
-                            <div class="archivist-count-cell">
-                                <span>MINUTES</span>
-                                <strong id="archMins">00</strong>
-                            </div>
-
-                            <div class="archivist-count-cell">
-                                <span>SECONDS</span>
-                                <strong id="archSecs">00</strong>
-                            </div>
-
-                        </div>
-
-                        <p class="archivist-count-note">
-                            Until the first release · Jan 1, 2028 · Estimated
-                        </p>
-
                     </div>
 
                 </div>
